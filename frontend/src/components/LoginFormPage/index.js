@@ -31,8 +31,8 @@ function LoginFormPage() {
         <ul className="login-form-errors">
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <label className='login-form-label-email'>
-          Username or Email
+        <label className='login-form-label'>
+          <p className='login-form-names'>Username or Email</p>
           <input
             type="text"
             value={credential}
@@ -40,8 +40,8 @@ function LoginFormPage() {
             required
           />
         </label>
-        <label className='login-form-label-password'>
-          Password
+        <label className='login-form-label'>
+          <p className='login-form-names'>Password</p>
           <input
             type="password"
             value={password}
