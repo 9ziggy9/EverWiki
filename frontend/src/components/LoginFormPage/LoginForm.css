@@ -1,0 +1,17 @@
+body {
+    background-image: url(../../assets/wp1949970-giraffes-wallpapers.jpg);
+    background-size: 100%;
+}
+
+.login-form-container {
+    display:flex;
+    justify-content:right;
+}
+
+.login-form {
+    display: inline-block;
+    width: 25%;
+    margin: 5px;
+    padding:5px;
+    background-color: grey;
+}
