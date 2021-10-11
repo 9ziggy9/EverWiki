@@ -10,24 +10,36 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <div id="profile-button">
+        <ProfileButton user={sessionUser} />
+      </div>
     );
   } else {
     sessionLinks = (
-      <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-      </>
+      <div id="login-signup">
+        <NavLink to="/login">
+          <button>
+            <span className="material-icons">menu</span>
+          </button>
+        </NavLink>
+      </div>
     );
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <div id="navbar">
+      <ul id="nav-ul">
+        <li>
+          <div id="logo">
+            <img id="penguin-logo" alt='' src='./everwikilogo.png'/>
+            <NavLink id="logo-txt" exact to="/">EverWiki</NavLink>
+          </div>
+        </li>
+        <li>
+          {isLoaded && sessionLinks}
+        </li>
+      </ul>
+    </div>
   );
 }
 

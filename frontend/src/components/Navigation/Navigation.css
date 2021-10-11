@@ -1,1 +1,66 @@
-/* hello world */
+#navbar {
+    border:1px solid #93a1a1;
+    box-sizing:border-box;
+    position:fixed;
+    width: 100%;
+    background-color: #eee8d5;
+    margin:0;
+}
+
+#nav-ul {
+    display: flex;
+    justify-content:space-between;
+    list-style-type: none;
+    align-items:center;
+    margin:0;
+    padding:10px;
+}
+
+#logo {
+    display:flex;
+}
+
+#profile-container {
+    display:flex;
+    justify-content:right;
+}
+
+#profile-dropdown {
+    font-family: 'EB Garamond', serif;
+    font-size:18px;
+    color: #002b36;
+    position:absolute;
+    border:1px solid #93a1a1;
+    z-index:1;
+    background-color: #fdf6e3;
+    width:10%;
+    margin-top:-1px;
+}
+
+ul {
+    list-style-type:none;
+}
+
+#penguin-logo {
+    width: 50px;
+}
+
+#logo-txt {
+    display: flex;
+    align-items: center;
+    font-family: 'Press Start 2P';
+    color:#002b36;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+button {
+    border:1px solid #93a1a1;
+    background-color: #fdf6e3;
+}
+
+.material-icons {
+    font-size: 40px;
+    color: #6c71c4;
+}

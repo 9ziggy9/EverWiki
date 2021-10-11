@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css'
+import { NavLink } from 'react-router-dom';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -49,6 +50,9 @@ function LoginFormPage() {
             required
           />
         </label>
+        <NavLink to="/signup">
+          <p>Register</p>
+        </NavLink>
         <button className='login-form-button' type="submit">Log In</button>
       </form>
     </div>

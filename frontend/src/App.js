@@ -6,7 +6,6 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
-import ChessBoard from './components/ChessBoard';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +27,6 @@ function App() {
           </Route>
         </Switch>
       )}
-      <ChessBoard />
     </>
   );
 }
