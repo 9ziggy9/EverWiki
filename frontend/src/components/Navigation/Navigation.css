@@ -33,8 +33,8 @@
     border:1px solid #93a1a1;
     z-index:1;
     background-color: #fdf6e3;
-    width:10%;
     margin-top:-1px;
+    padding:10px;
 }
 
 ul {

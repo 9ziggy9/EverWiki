@@ -16,7 +16,7 @@ function Navigation({ isLoaded }){
     );
   } else {
     sessionLinks = (
-      <div id="login-signup">
+      <div id="profile-button">
         <NavLink to="/login">
           <button>
             <span className="material-icons">menu</span>
