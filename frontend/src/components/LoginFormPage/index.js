@@ -28,35 +28,35 @@ function LoginFormPage() {
 
   return (
     <div id='profile-container'>
-      <div id="profile-dropdown">
-      <form className='login-form' onSubmit={handleSubmit}>
-        <ul className="login-form-errors">
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <label className='login-form-label'>
-          <p className='login-form-names'>Username or Email</p>
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label className='login-form-label'>
-          <p className='login-form-names'>Password</p>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <NavLink to="/signup">
-          <p>Register</p>
-        </NavLink>
-        <button className='login-form-button' type="submit">Log In</button>
-      </form>
-    </div>
+      <div id="profile-dropdown-b">
+        <form onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+          <label>
+            <p>Username or Email</p>
+            <input
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            <p>Password</p>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <NavLink to="/signup">
+            <p>Register</p>
+          </NavLink>
+          <button type="submit">Log In</button>
+        </form>
+      </div>
     </div>
   );
 }

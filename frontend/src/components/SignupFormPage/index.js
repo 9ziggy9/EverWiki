@@ -30,7 +30,7 @@ function SignupFormPage() {
 
   return (
     <div id='profile-container'>
-      <div id="profile-dropdown">
+      <div id="profile-dropdown-b">
         <form onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
