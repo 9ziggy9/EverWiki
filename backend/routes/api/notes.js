@@ -27,9 +27,11 @@ router.get(
     const note = await Note.findByPk(noteId);
     console.log("HELLO FROM NOTE ROUTE:", noteId);
     console.log("USER ID IS:", req.user.id);
+    return res.json(note);
   }),
 );
 
+// Note post route (create note)
 router.post(
   '/',
   requireAuth,
@@ -45,5 +47,7 @@ router.post(
     return res.json(note);
   })
 );
+
+/* EDIT ROUTE GOES HERE */
 
 module.exports = router;
