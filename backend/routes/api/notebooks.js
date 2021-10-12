@@ -3,43 +3,23 @@ const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { Notebook } = require('../../db/models');
+const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 // Validation middleware
-const validateNotebook = [
-  check('email')
+const validateNotebookPost = [
+  check('title')
     .exists({ checkFalsy: true })
-    .isEmail()
-    .withMessage('Please provide a valid email.'),
-  check('username')
-    .exists({ checkFalsy: true })
-    .isLength({ min: 4 })
-    .withMessage('Please provide a username with at least 4 characters.'),
-  check('username')
-    .not()
-    .isEmail()
-    .withMessage('Username cannot be an email.'),
-  check('password')
-    .exists({ checkFalsy: true })
-    .isLength({ min: 6 })
-    .withMessage('Password must be 6 characters or more.'),
+    .withMessage('Please provide a valid title.'),
   handleValidationErrors,
 ];
 
-// Sign up
-router.post(
-  '/',
-  validateNotebook,
-  asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
-
-    await setTokenCookie(res, user);
-
-    return res.json({
-      user,
-    });
+router.get(
+  '/:id(\\d+)',
+  asyncHandler(async (req,res) => {
+    const notebookId = parseInt(req.params.id, 10);
+    res.render(notebookId);
   }),
 );
 
