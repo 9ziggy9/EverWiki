@@ -37,8 +37,9 @@
     padding:10px;
 }
 
-ul {
+#profile-dropdown ul {
     list-style-type:none;
+    align-self:center;
 }
 
 #penguin-logo {

@@ -27,7 +27,8 @@ function LoginFormPage() {
   }
 
   return (
-    <div className='login-form-container'>
+    <div id='profile-container'>
+      <div id="profile-dropdown">
       <form className='login-form' onSubmit={handleSubmit}>
         <ul className="login-form-errors">
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -55,6 +56,7 @@ function LoginFormPage() {
         </NavLink>
         <button className='login-form-button' type="submit">Log In</button>
       </form>
+    </div>
     </div>
   );
 }

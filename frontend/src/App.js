@@ -33,8 +33,8 @@ function App() {
         <div id='doc-pane'></div>
         <div id='act-pane'></div>
         <footer>
-          <p>Tutorial</p>
-          <p>About</p>
+          <p>tutorial</p>
+          <p>about</p>
           <img id='gh' alt='' src='./GitHub_Logo.png'/>
         </footer>
       </div>

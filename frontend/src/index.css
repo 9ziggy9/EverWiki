@@ -40,8 +40,7 @@ body {
 
 footer {
     display:flex;
-    padding-right:5px;
-    padding-left:5px;
+    padding-right:3px;
     justify-content:flex-end;
     align-items:center;
     color:#93a1a1;
@@ -51,6 +50,14 @@ footer {
     grid-column-end: 4;
 }
 
+footer p {
+    font-family: 'EB Garamond', serif;
+    font-size:17px;
+    font-weight:bold;
+    padding-right:9px;
+}
+
 #gh {
     height:100%;
 }
+
