@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Preview() {
+function Preview({text}) {
   return (
-    <></>
+    <>
+      <p>{text}</p>
+    </>
   );
 }
 

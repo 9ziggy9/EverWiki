@@ -1,8 +1,6 @@
 #note-form-container {
     display:grid;
-    margin:1%;
-    height:97%;
+    height:100%;
     grid-template-columns:50% 50%;
-    grid-template-rows:30px 1fr 30px;
     background-color:blue;
 }

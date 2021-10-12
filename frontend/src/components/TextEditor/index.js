@@ -9,11 +9,15 @@ import Editor from './Editor';
 import Preview from './Preview';
 
 function TextEditor() {
-
+  const [text, setText] = useState('hello world');
   return (
     <>
-      <div id='text-editor'><Editor /></div>
-      <div id='text-preview'><Preview /></div>
+      <div id='text-editor'>
+        <Editor text={text} setText={setText}/>
+      </div>
+      <div id='text-preview'>
+        <Preview text={text}/>
+      </div>
     </>
   );
 }

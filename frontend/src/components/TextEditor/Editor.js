@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Editor() {
+function Editor({text, setText}) {
+  const editText = (event) => setText(event.target.value);
   return (
-    <textarea>
+    <textarea onChange={editText}>
+      {text}
     </textarea>
   );
 }
