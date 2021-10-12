@@ -6,6 +6,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
+import FileTree from './components/FileTree';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,16 @@ function App() {
           </Route>
         </Switch>
       )}
+      <div className='app-container'>
+        <div id='tree-pane'></div>
+        <div id='doc-pane'></div>
+        <div id='act-pane'></div>
+        <footer>
+          <p>tutorial</p>
+          <p>about</p>
+          <img id='gh' alt='' src='./GitHub_Logo.png'/>
+        </footer>
+      </div>
     </>
   );
 }

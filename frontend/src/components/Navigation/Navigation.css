@@ -37,8 +37,22 @@
     padding:10px;
 }
 
-ul {
+#profile-dropdown-b {
+    font-family: 'EB Garamond', serif;
+    font-size:18px;
+    color: #002b36;
+    position:absolute;
+    border:1px solid #93a1a1;
+    z-index:1;
+    background-color: #fdf6e3;
+    margin-top:64px;
+    margin-right:11px;
+    padding:10px;
+}
+
+#profile-dropdown ul {
     list-style-type:none;
+    align-self:center;
 }
 
 #penguin-logo {
