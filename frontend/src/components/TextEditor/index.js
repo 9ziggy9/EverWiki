@@ -10,13 +10,19 @@ import Preview from './Preview';
 
 function TextEditor() {
   const [text, setText] = useState('hello world');
+  const [textStream, setTextStream] = useState('');
   return (
     <>
       <div id='text-editor'>
-        <Editor text={text} setText={setText}/>
+        <Editor
+          text={text}
+          setText={setText}
+          textStream={textStream}
+          setTextStream={setTextStream}
+        />
       </div>
       <div id='text-preview'>
-        <Preview text={text}/>
+        <Preview text={text} textStream={textStream}/>
       </div>
     </>
   );

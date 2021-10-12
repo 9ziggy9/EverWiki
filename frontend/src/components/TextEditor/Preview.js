@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Preview({text}) {
+function Preview({text, textStream}) {
   return (
     <>
-      <p>{text}</p>
+      <div dangerouslySetInnerHTML={{__html: textStream}} />
     </>
   );
 }
