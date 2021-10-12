@@ -6,18 +6,3 @@
     grid-template-rows:30px 1fr 30px;
     background-color:blue;
 }
-
-#note-form-editor {
-    border:1px solid #93a1a1;
-    background-color:red;
-    grid-column-start:1;
-    grid-row-end:3;
-}
-
-#note-form-preview {
-    border:1px solid #93a1a1;
-    border-left:none;
-    background-color:green;
-    grid-column-start:2;
-    grid-row-end:3;
-}

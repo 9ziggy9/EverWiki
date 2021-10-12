@@ -1,5 +1,17 @@
 #text-editor {
+    border:1px solid #93a1a1;
+    background-color:red;
+    grid-column-start:1;
+    grid-row-end:3;
     height:100%;
+}
+
+#text-preview {
+    border:1px solid #93a1a1;
+    border-left:none;
+    background-color:green;
+    grid-column-start:2;
+    grid-row-end:3;
 }
 
 #text-editor textarea {
