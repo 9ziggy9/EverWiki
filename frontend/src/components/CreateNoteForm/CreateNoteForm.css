@@ -14,23 +14,6 @@
     grid-row-end:3;
 }
 
-#note-form-editor textarea {
-    font-family: 'EB Garamond', serif;
-    font-size:22px;
-    background-color:#fdf6e3;
-    resize:none;
-    padding:20px;
-    width: 100%;
-    height:100%;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-#note-form-editor textarea:focus {
-    outline:0;
-}
-
 #note-form-preview {
     border:1px solid #93a1a1;
     border-left:none;
