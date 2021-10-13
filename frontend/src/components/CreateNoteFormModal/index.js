@@ -7,7 +7,7 @@ function CreateNoteFormModal({setNoteView}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>CLICK ME</button>
+      <button onClick={() => setShowModal(true)}>create note</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateNoteForm

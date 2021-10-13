@@ -14,14 +14,17 @@ function AppContainer({ isLoaded }) {
     applicationModules = (
       <>
         <div id='tree-pane'>
-            <CreateNoteFormModal
-              setNoteView={setNoteView}
-            />
         </div>
         <div id='doc-pane'>
           { noteView && <NoteView noteView={noteView}/> }
         </div>
-        <div id='act-pane'></div>
+        <div id='act-pane'>
+            <button>edit note</button>
+            <CreateNoteFormModal
+              setNoteView={setNoteView}
+            />
+            <button>delete note</button>
+        </div>
       </>
     );
   } else {

@@ -29,6 +29,13 @@
     padding-top:0;
 }
 
+#act-pane button {
+    font-family: 'EB Garamond', serif;
+    font-size:20px;
+    margin-top: 5px;
+    width:100%;
+}
+
 footer {
     display:flex;
     padding-right:3px;
