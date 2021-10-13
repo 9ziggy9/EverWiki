@@ -17,7 +17,7 @@
 
 #text-preview * {
     margin:0;
-    padding:0;
+    padding:1px;
 }
 
 #text-preview img {

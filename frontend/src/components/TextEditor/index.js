@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-import * as sessionActions from '../../store/session';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import '../CreateNoteForm/CreateNoteForm.css'
-import { NavLink } from 'react-router-dom';
 import './TextEditor.css'
 import Editor from './Editor';
 import Preview from './Preview';
 
-function TextEditor() {
-  const [text, setText] = useState('hello world');
-  const [textStream, setTextStream] = useState('');
+function TextEditor({text,setText,textStream,setTextStream}) {
   return (
     <>
       <div id='text-editor'>

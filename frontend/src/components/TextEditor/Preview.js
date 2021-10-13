@@ -1,5 +1,4 @@
 import React from 'react';
-import katex from 'katex';
 
 function Preview({text, textStream}) {
   return (
