@@ -1,7 +1,7 @@
 import React from 'react';
+import katex from 'katex';
 
 function Editor({text, setText, textStream, setTextStream}) {
-
   function parseStyle (text) {
     let newArr = []
     let s = String(text);
