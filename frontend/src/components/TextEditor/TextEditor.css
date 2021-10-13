@@ -1,5 +1,6 @@
 #text-editor {
     border:1px solid #93a1a1;
+    border-bottom:0;
     grid-column-start:1;
     height:100%;
 }
@@ -30,6 +31,8 @@
     font-size:16px;
     background-color:#eee8d5;
     border-right: none;
+    border-top:none;
+    border-bottom:none;
     resize:none;
     padding:20px;
     width: 100%;
