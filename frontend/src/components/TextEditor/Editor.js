@@ -6,12 +6,12 @@ function Editor({text, setText, textStream, setTextStream}) {
   function parseStyle (text) {
     let newArr = []
     let s = String(text);
-    if (s.match(/\{(.*?)\}/g)) {
-        const matches = s.match(/\{(.*?)\}/g).map(e => e.slice(1,e.length-1));
-        const replacements = s.match(/\{(.*?)\}/g).map(e => {
+    if (s.match(/\[(.*?)\]/g)) {
+        const matches = s.match(/\[(.*?)\]/g).map(e => e.slice(1,e.length-1));
+        const replacements = s.match(/\[(.*?)\]/g).map(e => {
             let n = 2;
             const style = e[1];
-            while(e[n] !== '}' && n < e.length) n++;
+            while(e[n] !== ']' && n < e.length) n++;
             switch (style) {
                 case 'i':
                 case 'b':
@@ -28,7 +28,7 @@ function Editor({text, setText, textStream, setTextStream}) {
                     return e.slice(2,n);
             }
         });
-        s.split(/[\{\}]/).forEach(e => {
+        s.split(/[\[\]]/).forEach(e => {
             let isVacant = true;
             for (let i in matches) {
             if(e === matches[i]) {
