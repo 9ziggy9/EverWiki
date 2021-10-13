@@ -6,8 +6,9 @@ function AppContainer() {
   return (
     <>
       <div className='app-container'>
-        <div id='tree-pane'><p>Hello World</p></div>
+        <div id='tree-pane'></div>
         <div id='doc-pane'>
+          <NoteView />
         </div>
         <div id='act-pane'></div>
         <footer>
