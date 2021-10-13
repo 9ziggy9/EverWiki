@@ -1,8 +1,10 @@
 import React from 'react';
 
-function NoteView() {
+function NoteView({noteView}) {
   return (
-    <p>HELLO FROM NOTEVIEW</p>
+    <>
+      <div dangerouslySetInnerHTML={{__html: noteView}} />
+    </>
   );
 }
 

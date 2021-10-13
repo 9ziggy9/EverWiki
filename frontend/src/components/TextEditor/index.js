@@ -4,9 +4,7 @@ import './TextEditor.css'
 import Editor from './Editor';
 import Preview from './Preview';
 
-function TextEditor() {
-  const [text, setText] = useState('hello world');
-  const [textStream, setTextStream] = useState('');
+function TextEditor({text,setText,textStream,setTextStream}) {
   return (
     <>
       <div id='text-editor'>
