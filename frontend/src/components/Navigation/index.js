@@ -15,9 +15,6 @@ function Navigation({ isLoaded }){
         <div id="profile-button">
           <ProfileButton user={sessionUser} />
         </div>
-        <div>
-            <CreateNoteFormModal />
-        </div>
       </>
     );
   } else {

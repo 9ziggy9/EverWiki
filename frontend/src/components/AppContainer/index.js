@@ -1,16 +1,37 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import NoteView from './NoteView';
 import './AppContainer.css';
+import {useState} from 'react';
+import CreateNoteFormModal from '../CreateNoteFormModal'
 
-function AppContainer() {
+function AppContainer({ isLoaded }) {
+  const [noteView, setNoteView] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
+  let applicationModules;
+
+  if(sessionUser) {
+    applicationModules = (
+      <>
+        <div id='tree-pane'>
+            <CreateNoteFormModal />
+        </div>
+        <div id='doc-pane'>
+          { noteView && <NoteView setNoteView={setNoteView}/> }
+        </div>
+        <div id='act-pane'></div>
+      </>
+    );
+  } else {
+    applicationModules = (
+      <h1>Login please</h1>
+    );
+  }
+
   return (
     <>
       <div className='app-container'>
-        <div id='tree-pane'></div>
-        <div id='doc-pane'>
-          <NoteView />
-        </div>
-        <div id='act-pane'></div>
+        {isLoaded && applicationModules}
         <footer>
           <p>tutorial</p>
           <p>about</p>
