@@ -14,12 +14,12 @@ function TextEditor() {
   return (
     <>
       <div id='text-editor'>
-        <Editor
-          text={text}
-          setText={setText}
-          textStream={textStream}
-          setTextStream={setTextStream}
-        />
+      <Editor
+        text={text}
+        setText={setText}
+        textStream={textStream}
+        setTextStream={setTextStream}
+      />
       </div>
       <div id='text-preview'>
         <Preview text={text} textStream={textStream}/>

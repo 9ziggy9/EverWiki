@@ -11,9 +11,14 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <div id="profile-button">
-        <ProfileButton user={sessionUser} />
-      </div>
+      <>
+        <div id="profile-button">
+          <ProfileButton user={sessionUser} />
+        </div>
+        <div>
+            <CreateNoteFormModal />
+        </div>
+      </>
     );
   } else {
     sessionLinks = (
@@ -35,9 +40,6 @@ function Navigation({ isLoaded }){
             <img id="penguin-logo" alt='' src='./everwikilogo.png'/>
             <NavLink id="logo-txt" exact to="/">EverWiki</NavLink>
           </div>
-        </li>
-        <li>
-          <CreateNoteFormModal />
         </li>
         <li>
           {isLoaded && sessionLinks}

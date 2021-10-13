@@ -10,7 +10,7 @@ function CreateNoteFormModal() {
       <button onClick={() => setShowModal(true)}>CLICK ME</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateNoteForm />
+          <CreateNoteForm showModal={showModal} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
