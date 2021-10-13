@@ -1,4 +1,5 @@
 import React from 'react';
+import katex from 'katex';
 
 function Editor({text, setText, textStream, setTextStream}) {
 
@@ -11,7 +12,21 @@ function Editor({text, setText, textStream, setTextStream}) {
             let n = 2;
             const style = e[1];
             while(e[n] !== '}' && n < e.length) n++;
-            return `<${style}>${e.slice(2,n)}</${style}>`
+            switch (style) {
+                case 'i':
+                case 'b':
+                    return `<${style}>${e.slice(2,n)}</${style}>`;
+                case 'm':
+                    const preparedString = e.slice(2,n);
+                    const katexTest = katex.renderToString(
+                      preparedString, {
+                        displayMode: true,
+                        throwOnError: false
+                    });
+                    return katexTest;
+                default:
+                    return e.slice(2,n);
+            }
         });
         s.split(/[\{\}]/).forEach(e => {
             let isVacant = true;
@@ -26,7 +41,7 @@ function Editor({text, setText, textStream, setTextStream}) {
             isVacant = true;
             }
         });
-    return newArr.join('');
+        return newArr.join('');
     }
     return s;
   }
