@@ -1,15 +1,11 @@
 import React from "react";
-import './CreateNoteForm.css'
+import './CreateNoteForm.css';
+import TextEditor from '../TextEditor';
 
 function CreateNoteForm() {
   return (
     <div id='note-form-container'>
-      <div id='note-form-editor'>
-        <textarea>
-        </textarea>
-      </div>
-      <div id='note-form-preview'>
-      </div>
+        <TextEditor />
     </div>
   );
 }
