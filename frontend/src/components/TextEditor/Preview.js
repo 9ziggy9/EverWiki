@@ -1,4 +1,5 @@
 import React from 'react';
+var Latex = require('react-latex');
 
 function Preview({text, textStream}) {
   return (

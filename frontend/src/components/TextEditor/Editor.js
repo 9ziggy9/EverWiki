@@ -53,7 +53,6 @@ function Editor({text, setText, textStream, setTextStream}) {
   return (
     <>
       <textarea onChange={editText}>
-        {text}
       </textarea>
     </>
   );

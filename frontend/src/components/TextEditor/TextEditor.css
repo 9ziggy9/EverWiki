@@ -1,6 +1,5 @@
 #text-editor {
     border:1px solid #93a1a1;
-    background-color:red;
     grid-column-start:1;
     height:100%;
 }
@@ -14,6 +13,11 @@
     border-left:none;
     background-color:green;
     grid-column-start:2;
+}
+
+#text-preview * {
+    margin:0;
+    padding:0;
 }
 
 #text-editor textarea {
