@@ -7,7 +7,6 @@ function NoteView() {
   const sessionNote = useSelector((state) => state.session.note);
 
   useEffect(() => {
-    console.log('hello from noteview');
     setNoteContent(
       parseBullets(splitOnNewLines(parseStyle(sessionNote.content))).join('')
     );

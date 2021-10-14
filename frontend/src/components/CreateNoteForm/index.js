@@ -32,7 +32,14 @@ function CreateNoteForm({setShowModal, setNoteView, text, setText}) {
                     setTextStream={setTextStream} />
       </div>
       <NavLink to='/note'>
-        <button onClick={submitAndClose}>test</button>
+        <div id="editor-buttons">
+          <button>dark mode</button>
+          <button>vi mode</button>
+          <button>help</button>
+          <button>KaTeX help</button>
+          <button id="post-note" onClick={submitAndClose}>post</button>
+          <button id="cancel-note">cancel</button>
+        </div>
       </NavLink>
     </>
   );
