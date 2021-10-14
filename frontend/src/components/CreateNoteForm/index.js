@@ -20,9 +20,7 @@ function CreateNoteForm({setShowModal, setNoteView, text, setText}) {
 
   function submitAndClose() {
     postNote();
-    console.log("Looking at:", sessionNote);
     setShowModal(false);
-    setNoteView(text);
   }
 
   return (

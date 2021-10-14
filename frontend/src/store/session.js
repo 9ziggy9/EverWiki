@@ -91,7 +91,10 @@ export const newNote = (note) => async (dispatch) => {
   return response;
 };
 
-const initialState = { user: null, note: null };
+const initialState = { user: null, note: {
+  title: 'Welcome',
+  content: `*Welcome To EverWiki`
+} };
 
 const sessionReducer = (state = initialState, action) => {
   let newState;

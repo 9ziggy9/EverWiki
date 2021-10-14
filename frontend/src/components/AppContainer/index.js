@@ -6,7 +6,6 @@ import {useState} from 'react';
 import CreateNoteFormModal from '../CreateNoteFormModal'
 
 function AppContainer({ isLoaded }) {
-  const [noteView, setNoteView] = useState('');
   const sessionUser = useSelector(state => state.session.user);
   let applicationModules;
 
@@ -16,13 +15,11 @@ function AppContainer({ isLoaded }) {
         <div id='tree-pane'>
         </div>
         <div id='doc-pane'>
-          { noteView && <NoteView noteView={noteView}/> }
+          <NoteView />
         </div>
         <div id='act-pane'>
             <button>edit note</button>
-            <CreateNoteFormModal
-              setNoteView={setNoteView}
-            />
+            <CreateNoteFormModal />
             <button>delete note</button>
         </div>
       </>
