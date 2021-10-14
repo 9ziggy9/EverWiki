@@ -107,6 +107,7 @@ const sessionReducer = (state = initialState, action) => {
     case SET_NOTE:
       newState = Object.assign({}, state);
       newState.noteId = action.payload;
+      return newState;
     default:
       return state;
   }

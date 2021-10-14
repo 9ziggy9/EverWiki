@@ -25,7 +25,7 @@ export function parseStyle (text) {
                     return e.slice(2,n);
             }
         });
-        s.split(/[\[\]]/).forEach(e => {
+        s.split(/\[|\]/).forEach(e => {
             let isVacant = true;
             for (let i in matches) {
             if(e === matches[i]) {
