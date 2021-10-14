@@ -8,11 +8,20 @@
     grid-template-rows:1fr 30px;
 }
 
+#splash-screen {
+    grid-column-start:1;
+    grid-column-end:4;
+    background: url('../../assets/brokenpencilbackdrop.jpg') no-repeat fixed;
+    background-size: cover;
+}
+
 #tree-pane {
     background-color:#eee8d5;
     grid-column-start: 1;
 }
 #doc-pane {
+    display:flex;
+    justify-content: center;
     border:1px solid #93a1a1;
     border-top: none;
     border-bottom: none;
@@ -27,6 +36,10 @@
 #tree-pane, #doc-pane, #act-pane {
     padding:5px;
     padding-top:0;
+}
+
+#doc-pane img {
+    margin-top:5px;
 }
 
 #act-pane button {

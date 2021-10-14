@@ -1,5 +1,6 @@
 #text-editor {
     border:1px solid #93a1a1;
+    border-bottom:0;
     grid-column-start:1;
     height:100%;
 }
@@ -11,7 +12,7 @@
     padding-right:10px;
     border:1px solid #93a1a1;
     border-left:none;
-    background-color:green;
+    background-color:#fdf6e3;
     grid-column-start:2;
 }
 
@@ -28,7 +29,10 @@
 #text-editor textarea {
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size:16px;
-    background-color:#fdf6e3;
+    background-color:#eee8d5;
+    border-right: none;
+    border-top:none;
+    border-bottom:none;
     resize:none;
     padding:20px;
     width: 100%;

@@ -29,7 +29,8 @@ function AppContainer({ isLoaded }) {
     );
   } else {
     applicationModules = (
-      <h1>Login please</h1>
+      <div id='splash-screen'>
+      </div>
     );
   }
 
