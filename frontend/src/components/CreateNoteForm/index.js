@@ -8,20 +8,21 @@ import * as sessionActions from '../../store/session'
 
 function CreateNoteForm({setShowModal, setNoteView, text, setText}) {
   const dispatch = useDispatch();
-  const sessionNote = useSelector((state) => state.session.noteId);
+  const sessionNote = useSelector((state) => state.session.note);
   const [textStream, setTextStream] = useState('');
 
-  async function fetchNote() {
-    const noteId = 6;
-    await dispatch(sessionActions.grabNote(noteId));
-    console.log("Looking at:", sessionNote);
-    return;
+  function postNote() {
+    return dispatch(sessionActions.newNote({
+      title: 'testing',
+      content: text,
+    }));
   }
 
   function submitAndClose() {
-    fetchNote();
+    postNote();
+    console.log("Looking at:", sessionNote);
     setShowModal(false);
-    setNoteView(textStream);
+    setNoteView(text);
   }
 
   return (

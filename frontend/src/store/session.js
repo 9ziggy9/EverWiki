@@ -17,10 +17,10 @@ const removeUser = () => {
   };
 };
 
-const setNote = (noteId) => {
+const setNote = (note) => {
   return {
     type: SET_NOTE,
-    payload: noteId
+    payload: note
   };
 }
 
@@ -73,7 +73,7 @@ export const grabNote = (noteId) => async dispatch => {
   const response = await csrfFetch(`/api/note/${noteId}`);
   const data = await response.json();
   console.log('HELLO FROM grabNote():', data);
-  dispatch(setNote(data.content));
+  dispatch(setNote(data));
   return response;
 };
 
@@ -87,11 +87,11 @@ export const newNote = (note) => async (dispatch) => {
     }),
   });
   const data = await response.json();
-  dispatch(setNote(data.noteId));
+  dispatch(setNote(data));
   return response;
 };
 
-const initialState = { user: null };
+const initialState = { user: null, note: null };
 
 const sessionReducer = (state = initialState, action) => {
   let newState;
@@ -106,7 +106,7 @@ const sessionReducer = (state = initialState, action) => {
       return newState;
     case SET_NOTE:
       newState = Object.assign({}, state);
-      newState.noteId = action.payload;
+      newState.note = action.payload;
       return newState;
     default:
       return state;
