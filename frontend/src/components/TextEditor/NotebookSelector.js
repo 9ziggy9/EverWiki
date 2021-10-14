@@ -2,7 +2,10 @@ import React from 'react';
 
 function NotebookSelector() {
   return (
-    <p>Hello from Notebook Selector</p>
+    <>
+      <p>Title: </p>
+      <textarea id='title-area'>hello world</textarea>
+    </>
   );
 }
 

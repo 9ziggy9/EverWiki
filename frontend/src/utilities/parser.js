@@ -50,7 +50,7 @@ export const parseBullets = (array) => array.map(e => {
       case '*':
         let n = 0;
         while(e[n] === '*') n++;
-        return `<h${n+1}>${e.slice(n)}</h${n+1}>`;
+        return `<h${n}>${e.slice(n)}</h${n}>`;
       default:
         return `<p>${e}</p>`;
     }

@@ -8,11 +8,34 @@
 }
 
 #notebook-selector {
+    font-family: 'EB Garamond', serif;
+    font-size:20px;
     border:1px solid #93a1a1;
     padding:2px;
     background-color:#eee8d5;
     display:flex;
     align-items:center;
+}
+
+#notebook-selector p{
+    font-weight: bold;
+}
+
+#title-area {
+    font-family: 'EB Garamond', serif;
+    font-size:18px;
+    padding:5px;
+    text-justify:center;
+    background-color:#eee8d5;
+    border:none;
+    margin-left:5px;
+    resize:none;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #text-preview {
@@ -36,7 +59,7 @@
     width:100%;
 }
 
-#text-editor textarea {
+#text-editor-input {
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size:16px;
     background-color:#eee8d5;
