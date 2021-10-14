@@ -1,6 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import NoteView from './NoteView';
+import FileTree from './FileTree';
 import './AppContainer.css';
 import {useState} from 'react';
 import CreateNoteFormModal from '../CreateNoteFormModal'
@@ -13,13 +14,14 @@ function AppContainer({ isLoaded }) {
     applicationModules = (
       <>
         <div id='tree-pane'>
+          <FileTree />
         </div>
         <div id='doc-pane'>
           <NoteView />
         </div>
         <div id='act-pane'>
             <button>edit note</button>
-            <CreateNoteFormModal />
+              <CreateNoteFormModal />
             <button>delete note</button>
         </div>
       </>
