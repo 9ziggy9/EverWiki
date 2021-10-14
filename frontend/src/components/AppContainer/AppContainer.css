@@ -8,6 +8,13 @@
     grid-template-rows:1fr 30px;
 }
 
+#splash-screen {
+    grid-column-start:1;
+    grid-column-end:4;
+    background: url('../../assets/brokenpencilbackdrop.jpg') no-repeat fixed;
+    background-size: cover;
+}
+
 #tree-pane {
     background-color:#eee8d5;
     grid-column-start: 1;

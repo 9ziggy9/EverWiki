@@ -4,6 +4,7 @@ import CreateNoteForm from '../CreateNoteForm';
 
 function CreateNoteFormModal({setNoteView}) {
   const [showModal, setShowModal] = useState(false);
+  const [text, setText] = useState('hello world');
 
   return (
     <>
@@ -14,6 +15,8 @@ function CreateNoteFormModal({setNoteView}) {
             showModal={showModal}
             setShowModal={setShowModal}
             setNoteView={setNoteView}
+            text={text}
+            setText={setText}
           />
         </Modal>
       )}
