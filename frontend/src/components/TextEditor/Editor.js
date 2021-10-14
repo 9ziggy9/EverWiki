@@ -6,7 +6,7 @@ function Editor({text, setText}) {
   }
   return (
     <>
-      <textarea onChange={editText}>
+      <textarea id='text-editor-input' onChange={editText}>
         {text}
       </textarea>
     </>

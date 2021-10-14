@@ -8,20 +8,19 @@ import * as sessionActions from '../../store/session'
 
 function CreateNoteForm({setShowModal, setNoteView, text, setText}) {
   const dispatch = useDispatch();
-  const sessionNote = useSelector((state) => state.session.noteId);
+  const sessionNote = useSelector((state) => state.session.note);
   const [textStream, setTextStream] = useState('');
 
-  async function fetchNote() {
-    const noteId = 6;
-    await dispatch(sessionActions.grabNote(noteId));
-    console.log("Looking at:", sessionNote);
-    return;
+  function postNote() {
+    return dispatch(sessionActions.newNote({
+      title: 'testing',
+      content: text,
+    }));
   }
 
   function submitAndClose() {
-    fetchNote();
+    postNote();
     setShowModal(false);
-    setNoteView(textStream);
   }
 
   return (
@@ -33,7 +32,14 @@ function CreateNoteForm({setShowModal, setNoteView, text, setText}) {
                     setTextStream={setTextStream} />
       </div>
       <NavLink to='/note'>
-        <button onClick={submitAndClose}>test</button>
+        <div id="editor-buttons">
+          <button id="post-button" onClick={submitAndClose}>post</button>
+          <button>dark mode</button>
+          <button>vi mode</button>
+          <button>help</button>
+          <button>KaTeX help</button>
+          <button>cancel</button>
+        </div>
       </NavLink>
     </>
   );

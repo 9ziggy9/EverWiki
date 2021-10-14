@@ -49,6 +49,37 @@
     width:100%;
 }
 
+.note-btn {
+    font-family: 'EB Garamond', serif;
+    border: none;
+    font-size:18px;
+    text-align:left;
+    padding-left:40px;
+    width:100%;
+}
+
+.note-btn:hover {
+    background-color:#859900;
+}
+
+.notebook-btn {
+    font-family: 'EB Garamond', serif;
+    font-weight:bold;
+    font-size:24px;
+    text-align:left;
+    padding-left:10px;
+    border: none;
+    width:100%;
+}
+
+.notebook-btn:hover {
+    background-color:#859900;
+}
+
+#act-pane button:hover {
+    background-color:#859900;
+}
+
 footer {
     display:flex;
     padding-right:3px;

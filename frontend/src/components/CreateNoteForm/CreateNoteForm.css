@@ -4,3 +4,24 @@
     grid-template-columns:50% 50%;
     background-color:blue;
 }
+
+#editor-buttons {
+    display:flex-column;
+    align-items:center;
+    width:50%;
+}
+
+#editor-buttons button {
+    background-color:#eee8d5;
+    border-width: 1px;
+    height:25px;
+}
+
+#post-button {
+    font-weight:bold;
+    width:100px;
+}
+
+#editor-buttons button:hover {
+    background-color:#859900;
+}

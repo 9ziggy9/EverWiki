@@ -25,7 +25,7 @@ export function parseStyle (text) {
                     return e.slice(2,n);
             }
         });
-        s.split(/[\[\]]/).forEach(e => {
+        s.split(/\[|\]/).forEach(e => {
             let isVacant = true;
             for (let i in matches) {
             if(e === matches[i]) {
@@ -50,7 +50,7 @@ export const parseBullets = (array) => array.map(e => {
       case '*':
         let n = 0;
         while(e[n] === '*') n++;
-        return `<h${n+1}>${e.slice(n)}</h${n+1}>`;
+        return `<h${n}>${e.slice(n)}</h${n}>`;
       default:
         return `<p>${e}</p>`;
     }
