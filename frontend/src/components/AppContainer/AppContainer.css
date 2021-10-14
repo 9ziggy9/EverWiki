@@ -49,6 +49,10 @@
     width:100%;
 }
 
+#act-pane button:hover {
+    background-color:#859900;
+}
+
 footer {
     display:flex;
     padding-right:3px;

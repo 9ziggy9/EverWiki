@@ -1,8 +1,18 @@
 #text-editor {
+    display:grid;
+    grid-template-rows:5% 95%;
     border:1px solid #93a1a1;
     border-bottom:0;
     grid-column-start:1;
     height:100%;
+}
+
+#notebook-selector {
+    border:1px solid #93a1a1;
+    padding:2px;
+    background-color:#eee8d5;
+    display:flex;
+    align-items:center;
 }
 
 #text-preview {

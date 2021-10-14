@@ -33,12 +33,12 @@ function CreateNoteForm({setShowModal, setNoteView, text, setText}) {
       </div>
       <NavLink to='/note'>
         <div id="editor-buttons">
+          <button id="post-button" onClick={submitAndClose}>post</button>
           <button>dark mode</button>
           <button>vi mode</button>
           <button>help</button>
           <button>KaTeX help</button>
-          <button id="post-note" onClick={submitAndClose}>post</button>
-          <button id="cancel-note">cancel</button>
+          <button>cancel</button>
         </div>
       </NavLink>
     </>
