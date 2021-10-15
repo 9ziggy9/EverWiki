@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreateNoteForm from '../CreateNoteForm';
 
-function CreateNoteFormModal({setNoteView}) {
+function CreateNoteFormModal() {
   const [showModal, setShowModal] = useState(false);
   const [text, setText] = useState('hello world');
+  const [title, setTitle] = useState('Untitled');
 
   return (
     <>
@@ -12,11 +13,11 @@ function CreateNoteFormModal({setNoteView}) {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateNoteForm
-            showModal={showModal}
             setShowModal={setShowModal}
-            setNoteView={setNoteView}
             text={text}
             setText={setText}
+            title={title}
+            setTitle={setTitle}
           />
         </Modal>
       )}

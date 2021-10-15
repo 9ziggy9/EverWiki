@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Notebook } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -39,6 +39,18 @@ router.post(
 
     return res.json({
       user,
+    });
+  }),
+);
+
+// Populate library
+router.get(
+  '/:id(\\d+)/library',
+  asyncHandler(async (req,res) => {
+    const userId = parseInt(req.params.id, 10);
+    const library = await Notebook.findAll({where: {userId}});
+    return res.json({
+      library,
     });
   }),
 );
