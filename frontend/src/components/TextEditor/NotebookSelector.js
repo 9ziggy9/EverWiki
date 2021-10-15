@@ -4,7 +4,7 @@ function NotebookSelector() {
   return (
     <>
       <p>Title: </p>
-      <textarea id='title-area'>hello world</textarea>
+      <textarea defaultValue='Enter Title' id='title-area'></textarea>
     </>
   );
 }

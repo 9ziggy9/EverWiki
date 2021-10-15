@@ -19,7 +19,7 @@ function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
     }));
   }
 
-  function submitAndClose() {
+  function submitAndClose(e) {
     postNote();
     setShowModal(false);
   }
@@ -35,10 +35,10 @@ function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
                     setTextStream={setTextStream} />
       </div>
         <div id="editor-buttons">
-          <Link to={`/note/${noteId}`}>
-            <button id="post-button" onClick={() => postNote()}>post</button>
+          <Link to={`/newNote/`}>
+            <button id="post-button" onClick={() => submitAndClose()}>post</button>
           </Link>
-          <button>dark mode</button>
+          <button onClick={()=>console.log(sessionNote)}>dark mode</button>
           <button>vi mode</button>
           <button>help</button>
           <button>KaTeX help</button>
