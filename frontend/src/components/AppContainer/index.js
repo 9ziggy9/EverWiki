@@ -47,7 +47,7 @@ function AppContainer({ isLoaded }) {
         <footer>
           <p>tutorial</p>
           <p>about</p>
-          <img id='gh' alt='' src='./GitHub_Logo.png'/>
+          <img id='gh' alt='' src='../GitHub_Logo.png'/>
         </footer>
       </div>
     </>
