@@ -53,6 +53,7 @@
 
 #text-preview * {
     margin:0;
+    margin-top:3px;
 }
 
 #text-preview img {

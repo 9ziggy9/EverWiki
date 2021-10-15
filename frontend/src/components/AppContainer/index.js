@@ -21,12 +21,14 @@ function AppContainer({ isLoaded }) {
           <FileTree />
         </div>
         <div id='doc-pane'>
-          <NoteView />
+          <Route exact path={["/newNote","/note/:noteId"]}>
+            <NoteView />
+          </Route>
         </div>
         <div id='act-pane'>
           <p>notes</p>
           <button>edit note</button>
-          <CreateNoteFormModal />
+            <CreateNoteFormModal />
           <button>delete note</button>
           <p>notebooks</p>
           <button>edit notebook</button>
