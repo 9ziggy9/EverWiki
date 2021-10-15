@@ -5,7 +5,6 @@ import {useEffect, useState} from 'react';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
-import Navigation from './components/Navigation';
 import AppContainer from './components/AppContainer';
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
       <AppContainer isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>

@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import NoteView from './NoteView';
 import FileTree from './FileTree';
 import './AppContainer.css';
-import {useState} from 'react';
+import Navigation from '../Navigation';
 import CreateNoteFormModal from '../CreateNoteFormModal';
 import NotebookModal from './NotebookModal';
 
@@ -42,6 +42,7 @@ function AppContainer({ isLoaded }) {
   return (
     <>
       <div className='app-container'>
+        <Navigation isLoaded={isLoaded} />
         {isLoaded && applicationModules}
         <footer>
           <p>tutorial</p>
