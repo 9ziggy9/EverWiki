@@ -19,6 +19,11 @@
     background-color:#eee8d5;
     grid-column-start: 1;
 }
+
+#note-btn-selected {
+    background-color:#859900;
+}
+
 #doc-pane {
     display:flex;
     justify-content: center;
