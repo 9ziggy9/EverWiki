@@ -4,6 +4,7 @@ const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 const SET_NOTE = 'session/setNote';
 const POPULATE_LIBRARY = 'session/setLibrary';
+const COMPILE_NOTES = 'session/setNotes';
 
 const setUser = (user) => {
   return {
@@ -30,6 +31,13 @@ const setLibrary = (library) => {
     type: POPULATE_LIBRARY,
     payload: library
   };
+}
+
+const setNotes = (notes) => {
+  return {
+    type: COMPILE_NOTES,
+    payload: notes
+  }
 }
 
 export const login = (user) => async (dispatch) => {
@@ -99,12 +107,19 @@ export const newNote = (note) => async (dispatch) => {
   return response;
 };
 
+export const compileNotes = (user) => async dispatch => {
+  const {id} = user;
+  const response = await csrfFetch(`/api/user/${id}/notes`);
+  console.log('Hello from compileNotes()');
+  const data = await response.json();
+  dispatch(setNotes(data));
+  return response;
+};
+
 export const populateLibrary = (user) => async (dispatch) => {
   const {id} = user;
-  console.log('Welcome: ', user, 'with ID: ', id);
   const response = await csrfFetch(`/api/users/${id}/library`);
   const data = await response.json();
-  console.log('HELLO FROM populateLibrary()', data);
   dispatch(setLibrary(data));
   return response;
 }
@@ -116,6 +131,7 @@ const initialState = {
     title: 'Welcome',
     content: `*Welcome To EverWiki`
   },
+  notes: [],
   library: [],
 };
 
@@ -136,10 +152,10 @@ const sessionReducer = (state = initialState, action) => {
       return newState;
     case POPULATE_LIBRARY:
       newState = Object.assign({}, state)
+      if(newState.library.length) return newState;
       const additionalNotebooks = action.payload.library;
       const newLibrary = [...newState.library, ...additionalNotebooks]
       newState.library = newLibrary;
-      console.log('NEW LIBRARY:',newState);
       return newState;
     default:
       return state;
