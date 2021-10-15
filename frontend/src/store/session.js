@@ -158,6 +158,11 @@ const sessionReducer = (state = initialState, action) => {
       newState.library = newLibrary;
       return newState;
     case COMPILE_NOTES:
+      newState = Object.assign({}, state)
+      if(newState.notes.length) return newState;
+      const additionalNotes = action.payload.notes;
+      const newHeap = [...newState.notes, ...additionalNotes]
+      newState.notes = newHeap;
       return newState;
     default:
       return state;
