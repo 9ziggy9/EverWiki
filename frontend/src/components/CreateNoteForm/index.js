@@ -8,6 +8,7 @@ import * as sessionActions from '../../store/session'
 
 function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
   const dispatch = useDispatch();
+  const sessionNote = useSelector(state => state.session.note.id);
   const [textStream, setTextStream] = useState('');
 
   function postNote() {
@@ -20,6 +21,7 @@ function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
   function submitAndClose() {
     postNote();
     setShowModal(false);
+    console.log(sessionNote);
   }
 
   return (
@@ -30,7 +32,7 @@ function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
                     textStream={textStream}
                     setTextStream={setTextStream} />
       </div>
-      <NavLink to='/note'>
+      <NavLink to='/note/:id'>
         <div id="editor-buttons">
           <button id="post-button" onClick={submitAndClose}>post</button>
           <button>dark mode</button>

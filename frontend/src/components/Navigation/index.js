@@ -33,7 +33,7 @@ function Navigation({ isLoaded }){
       <ul id="nav-ul">
         <li>
           <div id="logo">
-            <img id="penguin-logo" alt='' src='./everwikilogo.png'/>
+            <img id="penguin-logo" alt='' src='../everwikilogo.png'/>
             <NavLink id="logo-txt" exact to="/">EverWiki</NavLink>
           </div>
         </li>
