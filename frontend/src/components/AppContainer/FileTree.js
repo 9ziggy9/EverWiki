@@ -7,12 +7,13 @@ function FileTree() {
   return (
     <>
       {
-        library.map(nb => (
-        <NotebookTab
-          notebookName={nb.title}
-          notebookId={nb.id}
-          key={`notebook-${nb.id}`} />
-        ))
+        library.map(nb => {
+          console.log(nb.id);
+          return <NotebookTab
+            notebookName={nb.title}
+            notebookId={nb.id}
+            key={`notebook-${nb.id}`} />
+        })
       }
     </>
   );

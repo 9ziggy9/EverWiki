@@ -12,7 +12,7 @@ function NotebookTab({notebookName, notebookId}) {
     <div className='collapsible-notes'>
       {
         notes.map(note => {
-          if(note.id === notebookId) {
+          if(note.notebookId === notebookId) {
             return <NoteTab
               noteId={note.id}
               key={`note-${note.id}`}
