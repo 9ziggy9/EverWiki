@@ -4,6 +4,7 @@ const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 const SET_NOTE = 'session/setNote';
 const POPULATE_LIBRARY = 'session/setLibrary';
+const COMPILE_NOTES = 'session/setNotes';
 
 const setUser = (user) => {
   return {
@@ -28,8 +29,15 @@ const setNote = (note) => {
 const setLibrary = (library) => {
   return {
     type: POPULATE_LIBRARY,
-    paylod: library
+    payload: library
   };
+}
+
+const setNotes = (notes) => {
+  return {
+    type: COMPILE_NOTES,
+    payload: notes
+  }
 }
 
 export const login = (user) => async (dispatch) => {
@@ -99,9 +107,18 @@ export const newNote = (note) => async (dispatch) => {
   return response;
 };
 
+export const compileNotes = (user) => async dispatch => {
+  const {id} = user;
+  const response = await csrfFetch(`/api/users/${id}/notes`);
+  console.log('Hello from compileNotes()');
+  const data = await response.json();
+  dispatch(setNotes(data));
+  return response;
+};
+
 export const populateLibrary = (user) => async (dispatch) => {
-  const {userId} = user;
-  const response = await csrfFetch(`/api/users/${userId}/library`);
+  const {id} = user;
+  const response = await csrfFetch(`/api/users/${id}/library`);
   const data = await response.json();
   dispatch(setLibrary(data));
   return response;
@@ -114,7 +131,8 @@ const initialState = {
     title: 'Welcome',
     content: `*Welcome To EverWiki`
   },
-  library: null
+  notes: [],
+  library: [],
 };
 
 const sessionReducer = (state = initialState, action) => {
@@ -133,8 +151,18 @@ const sessionReducer = (state = initialState, action) => {
       newState.note = action.payload;
       return newState;
     case POPULATE_LIBRARY:
-      newState = Object.assign({}, state);
-      newState.library = action.payload;
+      newState = Object.assign({}, state)
+      if(newState.library.length) return newState;
+      const additionalNotebooks = action.payload.library;
+      const newLibrary = [...newState.library, ...additionalNotebooks]
+      newState.library = newLibrary;
+      return newState;
+    case COMPILE_NOTES:
+      newState = Object.assign({}, state)
+      if(newState.notes.length) return newState;
+      const additionalNotes = action.payload.notes;
+      const newHeap = [...newState.notes, ...additionalNotes]
+      newState.notes = newHeap;
       return newState;
     default:
       return state;

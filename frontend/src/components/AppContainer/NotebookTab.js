@@ -1,18 +1,25 @@
 import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
 import NoteTab from './NoteTab';
 
 
-function NotebookTab({notebookName}) {
+function NotebookTab({notebookName, notebookId}) {
   const [isExpanded, setIsExpanded] = useState(true);
+  const notes = useSelector(state => state.session.notes);
   let noteTree;
   if(isExpanded) {
    noteTree = (
     <div className='collapsible-notes'>
-        <NoteTab noteName={'Example Note'}/>
-        <NoteTab noteName={'Example Note'}/>
-        <NoteTab noteName={'Example Note'}/>
-        <NoteTab noteName={'Example Note'}/>
-        <NoteTab noteName={'Example Note'}/>
+      {
+        notes.map(note => {
+          if(note.notebookId === notebookId) {
+            return <NoteTab
+              noteId={note.id}
+              key={`note-${note.id}`}
+              noteName={note.title} />
+          }
+        })
+      }
     </div>
    );
   }

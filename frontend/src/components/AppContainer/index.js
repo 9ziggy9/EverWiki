@@ -1,5 +1,5 @@
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import NoteView from './NoteView';
 import FileTree from './FileTree';
 import './AppContainer.css';
@@ -9,8 +9,10 @@ import NotebookModal from './NotebookModal';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './LoginFormPage';
 import SignupFormPage from './SignupFormPage';
+import * as sessionActions from '../../store/session';
 
 function AppContainer({ isLoaded }) {
+  const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   let applicationModules;
 
@@ -43,6 +45,19 @@ function AppContainer({ isLoaded }) {
       </div>
     );
   }
+
+  useEffect(() => {
+    if(sessionUser) {
+      dispatch(sessionActions.populateLibrary(sessionUser));
+    }
+  }, [dispatch, sessionUser]);
+
+  useEffect(() => {
+    if(sessionUser) {
+      dispatch(sessionActions.compileNotes(sessionUser));
+    }
+  }, [dispatch, sessionUser]);
+
 
   return (
     <>

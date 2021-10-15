@@ -1,12 +1,20 @@
 import React from 'react';
 import NotebookTab from './NotebookTab';
+import {useSelector} from 'react-redux';
 
 function FileTree() {
+  const library = useSelector(state => state.session.library);
   return (
     <>
-      <NotebookTab notebookName={'Example Notebook'}/>
-      <NotebookTab notebookName={'Example Notebook'}/>
-      <NotebookTab notebookName={'Example Notebook'}/>
+      {
+        library.map(nb => {
+          console.log(nb.id);
+          return <NotebookTab
+            notebookName={nb.title}
+            notebookId={nb.id}
+            key={`notebook-${nb.id}`} />
+        })
+      }
     </>
   );
 }

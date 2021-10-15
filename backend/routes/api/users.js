@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth');
-const { User, Notebook } = require('../../db/models');
+const { Note, User, Notebook } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -54,5 +54,17 @@ router.get(
     });
   }),
 );
+
+// Compile notes given a user
+router.get(
+  '/:id(\\d+)/notes',
+  asyncHandler(async (req,res) => {
+    const userId = parseInt(req.params.id, 10);
+    const notes = await Note.findAll({where: {userId}});
+    return res.json({
+      notes
+    });
+  }),
+)
 
 module.exports = router;
