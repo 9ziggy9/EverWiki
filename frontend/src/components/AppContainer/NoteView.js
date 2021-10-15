@@ -21,10 +21,12 @@ function NoteView() {
   }, [sessionNote])
 
   useEffect(() => {
+    if(noteId) {
       const note = getNote(noteId);
       setNoteContent(
         parseBullets(splitOnNewLines(parseStyle(note.content))).join('')
       );
+    }
   }, [noteId])
 
   return (

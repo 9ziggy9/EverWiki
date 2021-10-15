@@ -8,6 +8,7 @@
 }
 
 #splash-screen {
+    grid-row-start:2;
     grid-column-start:1;
     grid-column-end:4;
     background: url('../../assets/brokenpencilbackdrop.jpg') no-repeat fixed;
