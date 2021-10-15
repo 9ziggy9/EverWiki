@@ -39,6 +39,7 @@
 }
 
 #text-preview {
+    overflow:scroll;
     font-family: 'EB Garamond', serif;
     font-size:16px;
     padding-left:10px;
