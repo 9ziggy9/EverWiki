@@ -109,7 +109,7 @@ export const newNote = (note) => async (dispatch) => {
 
 export const compileNotes = (user) => async dispatch => {
   const {id} = user;
-  const response = await csrfFetch(`/api/user/${id}/notes`);
+  const response = await csrfFetch(`/api/users/${id}/notes`);
   console.log('Hello from compileNotes()');
   const data = await response.json();
   dispatch(setNotes(data));
@@ -156,6 +156,8 @@ const sessionReducer = (state = initialState, action) => {
       const additionalNotebooks = action.payload.library;
       const newLibrary = [...newState.library, ...additionalNotebooks]
       newState.library = newLibrary;
+      return newState;
+    case COMPILE_NOTES:
       return newState;
     default:
       return state;
