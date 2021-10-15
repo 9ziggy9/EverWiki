@@ -57,9 +57,9 @@ router.get(
 
 // Compile notes given a user
 router.get(
-  '/:id(\\d+)/library',
+  '/:id(\\d+)/notes',
   asyncHandler(async (req,res) => {
-    const userId = parse(req.params.id, 10);
+    const userId = parseInt(req.params.id, 10);
     const notes = await Note.findAll({where: {userId}});
     return res.json({
       notes

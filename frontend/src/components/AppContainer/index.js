@@ -52,6 +52,12 @@ function AppContainer({ isLoaded }) {
     }
   }, [dispatch, sessionUser]);
 
+  useEffect(() => {
+    if(sessionUser) {
+      dispatch(sessionActions.compileNotes(sessionUser));
+    }
+  }, [dispatch, sessionUser]);
+
 
   return (
     <>
