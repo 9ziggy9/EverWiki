@@ -28,7 +28,7 @@ const setNote = (note) => {
 const setLibrary = (library) => {
   return {
     type: POPULATE_LIBRARY,
-    paylod: library
+    payload: library
   };
 }
 
@@ -100,9 +100,11 @@ export const newNote = (note) => async (dispatch) => {
 };
 
 export const populateLibrary = (user) => async (dispatch) => {
-  const {userId} = user;
-  const response = await csrfFetch(`/api/users/${userId}/library`);
+  const {id} = user;
+  console.log('Welcome: ', user, 'with ID: ', id);
+  const response = await csrfFetch(`/api/users/${id}/library`);
   const data = await response.json();
+  console.log('HELLO FROM populateLibrary()', data);
   dispatch(setLibrary(data));
   return response;
 }
@@ -114,7 +116,7 @@ const initialState = {
     title: 'Welcome',
     content: `*Welcome To EverWiki`
   },
-  library: null
+  library: [],
 };
 
 const sessionReducer = (state = initialState, action) => {
@@ -133,8 +135,11 @@ const sessionReducer = (state = initialState, action) => {
       newState.note = action.payload;
       return newState;
     case POPULATE_LIBRARY:
-      newState = Object.assign({}, state);
-      newState.library = action.payload;
+      newState = Object.assign({}, state)
+      const additionalNotebooks = action.payload.library;
+      const newLibrary = [...newState.library, ...additionalNotebooks]
+      newState.library = newLibrary;
+      console.log('NEW LIBRARY:',newState);
       return newState;
     default:
       return state;
