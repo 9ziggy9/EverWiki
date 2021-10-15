@@ -61,6 +61,31 @@
     width:100%;
 }
 
+#notebook-modal {
+    display:flex-column;
+    justify-content:center;
+    height:100%;
+    font-family: 'EB Garamond', serif;
+    font-size:20px;
+    margin:40px;
+}
+
+#notebook-modal label {
+    font-weight:bold;
+}
+
+#notebook-modal form {
+    margin-top:20px;
+}
+
+#notebook-modal input {
+    font-family: 'EB Garamond', serif;
+    font-size:20px;
+    background-color:#fdf6e3;
+    margin:10px;
+    padding:5px;
+}
+
 .note-btn {
     font-family: 'EB Garamond', serif;
     border: none;
