@@ -37,6 +37,11 @@
 
 #doc-pane * {
     margin:0;
+    margin-top:3px;
+}
+
+#doc-pane img {
+    width:100%;
 }
 
 #act-pane {
