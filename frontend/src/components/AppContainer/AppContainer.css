@@ -33,6 +33,17 @@
     grid-column-start: 3;
 }
 
+#act-pane p {
+    border:1px dashed #6c71c4;
+    margin-bottom:0;
+    margin-top:5px;
+    width:100%;
+    font-family: 'EB Garamond', serif;
+    font-size:24px;
+    font-weight:bold;
+    text-align:center;
+}
+
 #tree-pane, #doc-pane, #act-pane {
     padding:5px;
     padding-top:0;

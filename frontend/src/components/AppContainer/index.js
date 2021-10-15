@@ -20,9 +20,14 @@ function AppContainer({ isLoaded }) {
           <NoteView />
         </div>
         <div id='act-pane'>
-            <button>edit note</button>
-              <CreateNoteFormModal />
-            <button>delete note</button>
+          <p>notes</p>
+          <button>edit note</button>
+            <CreateNoteFormModal />
+          <button>delete note</button>
+          <p>notebooks</p>
+          <button>edit notebook</button>
+          <button>create notebook</button>
+          <button>delete notebook</button>
         </div>
       </>
     );
