@@ -19,6 +19,11 @@
     background-color:#eee8d5;
     grid-column-start: 1;
 }
+
+#note-btn-selected {
+    background-color:#859900;
+}
+
 #doc-pane {
     display:flex;
     justify-content: center;
@@ -33,13 +38,20 @@
     grid-column-start: 3;
 }
 
+#act-pane p {
+    border:1px dashed #6c71c4;
+    margin-bottom:0;
+    margin-top:5px;
+    width:100%;
+    font-family: 'EB Garamond', serif;
+    font-size:24px;
+    font-weight:bold;
+    text-align:center;
+}
+
 #tree-pane, #doc-pane, #act-pane {
     padding:5px;
     padding-top:0;
-}
-
-#doc-pane img {
-    margin-top:5px;
 }
 
 #act-pane button {
@@ -47,6 +59,31 @@
     font-size:20px;
     margin-top: 5px;
     width:100%;
+}
+
+#notebook-modal {
+    display:flex-column;
+    justify-content:center;
+    height:100%;
+    font-family: 'EB Garamond', serif;
+    font-size:20px;
+    margin:40px;
+}
+
+#notebook-modal label {
+    font-weight:bold;
+}
+
+#notebook-modal form {
+    margin-top:20px;
+}
+
+#notebook-modal input {
+    font-family: 'EB Garamond', serif;
+    font-size:20px;
+    background-color:#fdf6e3;
+    margin:10px;
+    padding:5px;
 }
 
 .note-btn {

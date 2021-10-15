@@ -4,7 +4,8 @@ import NoteView from './NoteView';
 import FileTree from './FileTree';
 import './AppContainer.css';
 import {useState} from 'react';
-import CreateNoteFormModal from '../CreateNoteFormModal'
+import CreateNoteFormModal from '../CreateNoteFormModal';
+import NotebookModal from './NotebookModal';
 
 function AppContainer({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -20,9 +21,14 @@ function AppContainer({ isLoaded }) {
           <NoteView />
         </div>
         <div id='act-pane'>
-            <button>edit note</button>
-              <CreateNoteFormModal />
-            <button>delete note</button>
+          <p>notes</p>
+          <button>edit note</button>
+          <CreateNoteFormModal />
+          <button>delete note</button>
+          <p>notebooks</p>
+          <button>edit notebook</button>
+          <NotebookModal />
+          <button>delete notebook</button>
         </div>
       </>
     );
