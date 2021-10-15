@@ -25,7 +25,7 @@
 }
 
 #doc-pane {
-    overflow:scroll;
+    overflow-y:scroll;
     display:flex;
     justify-content: center;
     border:1px solid #93a1a1;
