@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
-function NoteTab({noteName}) {
+function NoteTab({noteName, noteId}) {
   const [btnState, setBtnState] = useState('unselected');
 
   function selectTab() {
@@ -10,7 +10,7 @@ function NoteTab({noteName}) {
   }
 
   return (
-    <Link to={`/note/1`}>
+    <Link to={`/note/${noteId}`}>
       <button onClick={selectTab} className='note-btn' id={`${btnState}`}>
         {noteName}
       </button>

@@ -8,7 +8,10 @@ function FileTree() {
     <>
       {
         library.map(nb => (
-        <NotebookTab notebookName={`${nb.title}`}/>
+        <NotebookTab
+          notebookName={nb.title}
+          notebookId={nb.id}
+          key={`notebook-${nb.id}`} />
         ))
       }
     </>
