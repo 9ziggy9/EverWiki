@@ -18,6 +18,7 @@
     background-color:#eee8d5;
     grid-column-start: 1;
     grid-row-start: 2;
+    border-right:1px solid #93a1a1;
 }
 
 #note-btn-selected {
@@ -28,17 +29,21 @@
     overflow-y:scroll;
     display:flex;
     justify-content: center;
-    border:1px solid #93a1a1;
-    border-top: none;
-    border-bottom: none;
     background-color:#fdf6e3;
     grid-column-start: 2;
     grid-row-start: 2;
+    margin:5px;
 }
+
+#doc-pane * {
+    margin:0;
+}
+
 #act-pane {
     background-color:#eee8d5;
     grid-column-start: 3;
     grid-row-start: 2;
+    border-left:1px solid #93a1a1;
 }
 
 #act-pane p {
@@ -55,6 +60,10 @@
 #tree-pane, #doc-pane, #act-pane {
     padding:5px;
     padding-top:0;
+}
+
+#tree-pane {
+    padding-top:5px;
 }
 
 #act-pane button {
@@ -91,7 +100,7 @@
 
 .note-btn {
     font-family: 'EB Garamond', serif;
-    border: none;
+    border:none;
     font-size:18px;
     text-align:left;
     padding-left:40px;
@@ -105,10 +114,10 @@
 .notebook-btn {
     font-family: 'EB Garamond', serif;
     font-weight:bold;
+    border:none;
     font-size:24px;
     text-align:left;
     padding-left:10px;
-    border: none;
     width:100%;
 }
 

@@ -40,7 +40,7 @@
 }
 
 #text-preview {
-    overflow:scroll;
+    overflow-y:scroll;
     font-family: 'EB Garamond', serif;
     font-size:16px;
     padding-left:10px;
@@ -53,7 +53,6 @@
 
 #text-preview * {
     margin:0;
-    padding:1px;
 }
 
 #text-preview img {
