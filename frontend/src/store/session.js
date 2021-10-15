@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 const SET_NOTE = 'session/setNote';
+const POPULATE_LIBRARY = 'session/setLibrary';
 
 const setUser = (user) => {
   return {
@@ -21,6 +22,13 @@ const setNote = (note) => {
   return {
     type: SET_NOTE,
     payload: note
+  };
+}
+
+const setLibrary = (library) => {
+  return {
+    type: POPULATE_LIBRARY,
+    paylod: library
   };
 }
 
@@ -91,10 +99,22 @@ export const newNote = (note) => async (dispatch) => {
   return response;
 };
 
-const initialState = { user: null, note: {
-  title: 'Welcome',
-  content: `*Welcome To EverWiki`
-} };
+export const populateLibrary = (user) => async (dispatch) => {
+  const {userId} = user;
+  const response = await csrfFetch(`/api/users/${userId}/library`);
+  const data = await response.json();
+  dispatch(setLibrary(data));
+  return response;
+}
+
+const initialState = {
+  user: null,
+  note: {
+    title: 'Welcome',
+    content: `*Welcome To EverWiki`
+  },
+  library: null
+};
 
 const sessionReducer = (state = initialState, action) => {
   let newState;
@@ -110,6 +130,10 @@ const sessionReducer = (state = initialState, action) => {
     case SET_NOTE:
       newState = Object.assign({}, state);
       newState.note = action.payload;
+      return newState;
+    case POPULATE_LIBRARY:
+      newState = Object.assign({}, state);
+      newState.library = action.payload;
       return newState;
     default:
       return state;
