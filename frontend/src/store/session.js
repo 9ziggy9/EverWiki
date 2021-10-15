@@ -110,6 +110,7 @@ export const populateLibrary = (user) => async (dispatch) => {
 const initialState = {
   user: null,
   note: {
+    id: 0,
     title: 'Welcome',
     content: `*Welcome To EverWiki`
   },

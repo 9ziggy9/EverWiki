@@ -1,9 +1,6 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {useEffect, useState} from 'react';
-import LoginFormPage from './components/LoginFormPage';
-import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 import AppContainer from './components/AppContainer';
 
@@ -17,12 +14,6 @@ function App() {
   return (
     <>
       <AppContainer isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/login"><LoginFormPage /></Route>
-          <Route path="/signup"><SignupFormPage /></Route>
-        </Switch>
-      )}
     </>
   );
 }

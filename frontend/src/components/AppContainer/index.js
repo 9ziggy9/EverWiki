@@ -6,6 +6,9 @@ import './AppContainer.css';
 import Navigation from '../Navigation';
 import CreateNoteFormModal from '../CreateNoteFormModal';
 import NotebookModal from './NotebookModal';
+import { Route, Switch } from 'react-router-dom';
+import LoginFormPage from './LoginFormPage';
+import SignupFormPage from './SignupFormPage';
 
 function AppContainer({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -44,6 +47,12 @@ function AppContainer({ isLoaded }) {
       <div className='app-container'>
         <Navigation isLoaded={isLoaded} />
         {isLoaded && applicationModules}
+        {isLoaded && (
+          <Switch>
+            <Route path="/login"><LoginFormPage /></Route>
+            <Route path="/signup"><SignupFormPage /></Route>
+          </Switch>
+        )}
         <footer>
           <p>tutorial</p>
           <p>about</p>
