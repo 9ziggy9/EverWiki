@@ -5,26 +5,34 @@ import {useSelector} from 'react-redux';
 
 function CreateNoteFormModal({btnName}) {
   const [showModal, setShowModal] = useState(false);
-  const [text, setText] = useState('hello world');
-  const [title, setTitle] = useState('Untitled');
+  const [text, setText] = useState('');
+  const [title, setTitle] = useState('Enter Title');
   const note = useSelector(state => state.session.note);
+
+  function handleModal() {
+    if(btnName === 'edit note')
+      setText(note.content);
+    setShowModal(true);
+  }
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>{btnName}</button>
+      <button onClick={() => handleModal()}>{btnName}</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           {btnName==='create note' && <CreateNoteForm
+            btnName={btnName}
             setShowModal={setShowModal}
             text={text}
             setText={setText}
             title={title}
             setTitle={setTitle} />}
           {btnName==='edit note' && <CreateNoteForm
+            btnName={btnName}
             setShowModal={setShowModal}
-            text={note.content}
+            text={text}
             setText={setText}
-            title={note.title}
+            title={title}
             setTitle={setTitle} />}
         </Modal>
       )}

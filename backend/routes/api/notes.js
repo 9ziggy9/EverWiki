@@ -48,6 +48,20 @@ router.post(
   })
 );
 
+router.post(
+  '/:id(\\d+)/edit',
+  requireAuth,
+  validateNote,
+  asyncHandler(async (req,res) => {
+    const {title,content,id} = req.body;
+    const note = await Note.findByPk(id);
+    note.title = title;
+    note.save();
+    note.content = content;
+    note.save();
+    return res.json(note);
+  })
+);
 /* EDIT ROUTE GOES HERE */
 
 module.exports = router;

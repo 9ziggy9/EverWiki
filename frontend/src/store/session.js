@@ -106,6 +106,21 @@ export const newNote = (note) => async (dispatch) => {
   return response;
 };
 
+export const editNote = (note) => async (dispatch) => {
+  const {title,content,id} = note;
+  const response = await csrfFetch(`/api/note/${id}/edit`, {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      content,
+      id
+    }),
+  });
+  const data = await response.json();
+  dispatch(setNote(data));
+  return response;
+};
+
 export const compileNotes = (user) => async dispatch => {
   const {id} = user;
   const response = await csrfFetch(`/api/users/${id}/notes`);
