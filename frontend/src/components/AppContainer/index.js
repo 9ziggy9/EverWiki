@@ -12,6 +12,9 @@ import SignupFormPage from './SignupFormPage';
 import * as sessionActions from '../../store/session';
 
 function AppContainer({ isLoaded }) {
+  const [selectedNoteId, setSelectedNoteId] = useState(0);
+  const [selectedNotebookId, setSelectedNotebookId] = useState(0);
+
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   let applicationModules;
@@ -20,7 +23,11 @@ function AppContainer({ isLoaded }) {
     applicationModules = (
       <>
         <div id='tree-pane'>
-          <FileTree />
+          <FileTree
+            selectedNoteId={selectedNoteId}
+            setSelectedNoteId={setSelectedNoteId}
+            selectedNotebookId={selectedNotebookId}
+            setSelectedNotebookId={setSelectedNotebookId} />
         </div>
         <div id='doc-pane'>
           <Route exact path={["/newNote","/note/:noteId"]}>
@@ -29,8 +36,8 @@ function AppContainer({ isLoaded }) {
         </div>
         <div id='act-pane'>
           <p>notes</p>
-          <button>edit note</button>
-            <CreateNoteFormModal />
+          <CreateNoteFormModal btnName={'edit note'}/>
+          <CreateNoteFormModal btnName={'create note'}/>
           <button>delete note</button>
           <p>notebooks</p>
           <button>edit notebook</button>

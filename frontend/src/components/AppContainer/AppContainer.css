@@ -22,10 +22,6 @@
     border-right:1px solid #93a1a1;
 }
 
-#note-btn-selected {
-    background-color:#859900;
-}
-
 #doc-pane {
     overflow-y:scroll;
     display:flex;
@@ -134,6 +130,11 @@
 #act-pane button:hover {
     background-color:#859900;
 }
+
+#note-btn-selected {
+    background-color:#859900;
+}
+
 
 footer {
     display:flex;

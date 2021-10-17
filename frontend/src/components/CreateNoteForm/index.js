@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import * as sessionActions from '../../store/session'
 
-function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
+function CreateNoteForm({btnName, setShowModal, text, setText, title, setTitle}) {
   const dispatch = useDispatch();
   const sessionNote = useSelector((state) => state.session.note);
   const [textStream, setTextStream] = useState('');
@@ -19,8 +19,17 @@ function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
     }));
   }
 
-  function submitAndClose(e) {
-    postNote();
+  function editNote() {
+    return dispatch(sessionActions.editNote({
+      title: 'Tested successful',
+      content: text,
+      id: noteId,
+    }));
+  }
+
+  function submitAndClose() {
+    if (btnName === 'edit note') editNote()
+    else postNote();
     setShowModal(false);
   }
 
@@ -30,6 +39,8 @@ function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
     <>
       <div id='note-form-container'>
         <TextEditor text={text}
+                    title={title}
+                    setTitle={setTitle}
                     setText={setText}
                     textStream={textStream}
                     setTextStream={setTextStream} />

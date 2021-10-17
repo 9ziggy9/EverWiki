@@ -1,13 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
-function NoteTab({noteName, noteId}) {
+function NoteTab({ selectedNoteId,
+            setSelectedNoteId,
+            noteName, noteId}) {
   const [btnState, setBtnState] = useState('unselected');
 
   function selectTab() {
-    if(btnState === 'unselected') setBtnState('note-btn-selected')
-    else setBtnState('unselected');
+    setSelectedNoteId(noteId)
   }
+
+  useEffect(() => {
+    if(selectedNoteId === noteId) {
+      setBtnState('note-btn-selected')
+    } else {
+      setBtnState('unselected')
+    }
+  }, [selectedNoteId])
 
   return (
     <Link to={`/note/${noteId}`}>
