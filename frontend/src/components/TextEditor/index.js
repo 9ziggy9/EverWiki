@@ -6,7 +6,8 @@ import Preview from './Preview';
 import NotebookSelector from './NotebookSelector';
 import {parseStyle,splitOnNewLines,parseBullets} from '../../utilities/parser';
 
-function TextEditor({text,setText,textStream,setTextStream}) {
+function TextEditor({text,setText,textStream,setTextStream,
+              title}) {
 
   useEffect(() => {
     setTextStream(parseBullets(splitOnNewLines(parseStyle(text))).join(''));
@@ -16,7 +17,7 @@ function TextEditor({text,setText,textStream,setTextStream}) {
     <>
       <div id='text-editor'>
         <div id='notebook-selector'>
-          <NotebookSelector />
+          <NotebookSelector title={title}/>
         </div>
         <Editor text={text} setText={setText} />
       </div>

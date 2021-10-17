@@ -30,6 +30,8 @@ function CreateNoteForm({setShowModal, text, setText, title, setTitle}) {
     <>
       <div id='note-form-container'>
         <TextEditor text={text}
+                    title={title}
+                    setTitle={setTitle}
                     setText={setText}
                     textStream={textStream}
                     setTextStream={setTextStream} />

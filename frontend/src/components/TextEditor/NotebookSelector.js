@@ -1,10 +1,10 @@
 import React from 'react';
 
-function NotebookSelector() {
+function NotebookSelector({title}) {
   return (
     <>
       <p>Title: </p>
-      <textarea defaultValue='Enter Title' id='title-area'></textarea>
+      <textarea defaultValue={title} id='title-area'></textarea>
     </>
   );
 }
