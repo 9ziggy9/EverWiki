@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import NoteTab from './NoteTab';
 
 
-function NotebookTab({notebookName, notebookId}) {
+function NotebookTab({setSelectedNotebookId, notebookName, notebookId}) {
   const [isExpanded, setIsExpanded] = useState(true);
   const notes = useSelector(state => state.session.notes);
   let noteTree;

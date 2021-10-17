@@ -11,7 +11,7 @@ import LoginFormPage from './LoginFormPage';
 import SignupFormPage from './SignupFormPage';
 import * as sessionActions from '../../store/session';
 
-function AppContainer({ isLoaded }) {
+function AppContainer({ isLoaded, setSelectedNoteId, setSelectedNotebookId }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   let applicationModules;
@@ -20,7 +20,8 @@ function AppContainer({ isLoaded }) {
     applicationModules = (
       <>
         <div id='tree-pane'>
-          <FileTree />
+          <FileTree setSelectedNoteId={setSelectedNoteId}
+                    setSelectedNotebookId={setSelectedNotebookId} />
         </div>
         <div id='doc-pane'>
           <Route exact path={["/newNote","/note/:noteId"]}>
