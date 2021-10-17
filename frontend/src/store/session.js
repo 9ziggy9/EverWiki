@@ -88,7 +88,6 @@ export const logout = () => async (dispatch) => {
 export const grabNote = (noteId) => async dispatch => {
   const response = await csrfFetch(`/api/note/${noteId}`);
   const data = await response.json();
-  console.log('HELLO FROM grabNote():', data);
   dispatch(setNote(data));
   return response;
 };
