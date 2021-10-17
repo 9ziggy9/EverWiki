@@ -2,7 +2,7 @@ import React from 'react';
 import NotebookTab from './NotebookTab';
 import {useSelector} from 'react-redux';
 
-function FileTree({setSelectedNotebookId}) {
+function FileTree({selectedNotebookId, setSelectedNotebookId}) {
   const library = useSelector(state => state.session.library);
   return (
     <>
@@ -10,6 +10,7 @@ function FileTree({setSelectedNotebookId}) {
         library.map(nb => {
           console.log(nb.id);
           return <NotebookTab
+            selectedNotebookId={selectedNotebookId}
             setSelectedNotebookId={setSelectedNotebookId}
             notebookName={nb.title}
             notebookId={nb.id}

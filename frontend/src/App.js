@@ -7,8 +7,6 @@ import AppContainer from './components/AppContainer';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [selectedNoteId, setSelectedNoteId] = useState(0);
-  const [selectedNotebookId, setSelectedNotebookId] = useState(0);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -16,9 +14,7 @@ function App() {
 
   return (
     <>
-      <AppContainer isLoaded={isLoaded}
-                    setSelectedNoteId={setSelectedNoteId}
-                    setSelectedNotebokId={setSelectedNotebookId} />
+      <AppContainer isLoaded={isLoaded} />
     </>
   );
 }
