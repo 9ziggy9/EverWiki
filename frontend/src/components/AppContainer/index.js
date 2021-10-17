@@ -24,6 +24,7 @@ function AppContainer({ isLoaded }) {
       <>
         <div id='tree-pane'>
           <FileTree
+            selectedNoteId={selectedNoteId}
             setSelectedNoteId={setSelectedNoteId}
             selectedNotebookId={selectedNotebookId}
             setSelectedNotebookId={setSelectedNotebookId} />

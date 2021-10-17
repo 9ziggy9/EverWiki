@@ -5,6 +5,8 @@ import NoteTab from './NoteTab';
 
 function NotebookTab({setSelectedNotebookId,
                selectedNotebookId,
+               selectedNoteId,
+               setSelectedNoteId,
                notebookName, notebookId}) {
   const [isExpanded, setIsExpanded] = useState(true);
   const [btnState, setBtnState] = useState('unselected');
@@ -18,6 +20,8 @@ function NotebookTab({setSelectedNotebookId,
         notes.map(note => {
           if(note.notebookId === notebookId) {
             return <NoteTab
+              selectedNoteId={selectedNoteId}
+              setSelectedNoteId={setSelectedNoteId}
               noteId={note.id}
               key={`note-${note.id}`}
               noteName={note.title} />
