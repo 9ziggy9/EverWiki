@@ -17,9 +17,10 @@ function AppContainer({ isLoaded }) {
 
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const sessionLibrary = useSelector(state => state.session.library);
   let applicationModules;
 
-  if(sessionUser) {
+  if (sessionUser) {
     applicationModules = (
       <>
         <div id='tree-pane'>
@@ -66,6 +67,11 @@ function AppContainer({ isLoaded }) {
     }
   }, [dispatch, sessionUser]);
 
+  useEffect(() => {
+    if(sessionLibrary.length) {
+      setSelectedNotebookId(sessionLibrary[0].id);
+    }
+  },[sessionLibrary])
 
   return (
     <>

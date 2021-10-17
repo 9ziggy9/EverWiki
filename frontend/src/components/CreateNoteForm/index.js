@@ -25,7 +25,7 @@ function CreateNoteForm({btnName, setShowModal,
 
   function editNote() {
     return dispatch(sessionActions.editNote({
-      title: 'Tested successful',
+      title: title,
       content: text,
       id: noteId,
     }));
