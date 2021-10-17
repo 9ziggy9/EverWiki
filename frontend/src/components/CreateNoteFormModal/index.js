@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import CreateNoteForm from '../CreateNoteForm';
 import {useSelector} from 'react-redux';
 
-function CreateNoteFormModal({btnName}) {
+function CreateNoteFormModal({btnName, selectedNotebookId}) {
   const [showModal, setShowModal] = useState(false);
   const [text, setText] = useState('');
   const [title, setTitle] = useState('Enter Title');
@@ -22,6 +22,7 @@ function CreateNoteFormModal({btnName}) {
         <Modal onClose={() => setShowModal(false)}>
           {btnName==='create note' && <CreateNoteForm
             btnName={btnName}
+            selectedNotebookId={selectedNotebookId}
             setShowModal={setShowModal}
             text={text}
             setText={setText}

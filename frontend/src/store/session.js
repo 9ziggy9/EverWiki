@@ -93,12 +93,13 @@ export const grabNote = (noteId) => async dispatch => {
 };
 
 export const newNote = (note) => async (dispatch) => {
-  const {title,content} = note;
+  const {title,content,notebookId} = note;
   const response = await csrfFetch("/api/note", {
     method: "POST",
     body: JSON.stringify({
       title,
-      content
+      content,
+      notebookId
     }),
   });
   const data = await response.json();

@@ -6,7 +6,10 @@ import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import * as sessionActions from '../../store/session'
 
-function CreateNoteForm({btnName, setShowModal, text, setText, title, setTitle}) {
+function CreateNoteForm({btnName, setShowModal,
+                  text, setText,
+                  title, setTitle,
+                  selectedNotebookId}) {
   const dispatch = useDispatch();
   const sessionNote = useSelector((state) => state.session.note);
   const [textStream, setTextStream] = useState('');
@@ -14,8 +17,9 @@ function CreateNoteForm({btnName, setShowModal, text, setText, title, setTitle})
 
   function postNote() {
     return dispatch(sessionActions.newNote({
-      title: 'testing',
+      title: title,
       content: text,
+      notebookId: selectedNotebookId,
     }));
   }
 

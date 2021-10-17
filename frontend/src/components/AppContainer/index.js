@@ -37,7 +37,8 @@ function AppContainer({ isLoaded }) {
         <div id='act-pane'>
           <p>notes</p>
           <CreateNoteFormModal btnName={'edit note'}/>
-          <CreateNoteFormModal btnName={'create note'}/>
+          <CreateNoteFormModal btnName={'create note'}
+                               selectedNotebookId={selectedNotebookId}/>
           <button>delete note</button>
           <p>notebooks</p>
           <button>edit notebook</button>
