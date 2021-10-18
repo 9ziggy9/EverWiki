@@ -19,8 +19,10 @@ function CreateNoteFormModal({btnName, selectedNotebookId, selectedNoteId}) {
   }
 
   function handleModal() {
-    if(btnName === 'edit note')
+    if(btnName === 'edit note') {
       setText(note.content);
+      setTitle(note.title);
+    }
     setShowModal(true);
   }
 

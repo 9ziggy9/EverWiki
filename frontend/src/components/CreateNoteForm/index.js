@@ -3,7 +3,7 @@ import './CreateNoteForm.css';
 import TextEditor from '../TextEditor';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import * as sessionActions from '../../store/session'
 
 function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
@@ -11,10 +11,9 @@ function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
                   selectedNotebookId}) {
   const {text, setText,
          title, setTitle,
-         showModal, setShowModal} = TEXT_EDITOR_SESSION;
+         setShowModal} = TEXT_EDITOR_SESSION;
   const dispatch = useDispatch();
   const [textStream, setTextStream] = useState('');
-  const [noteId, setNoteId] = useState(selectedNoteId);
 
   function postNote() {
     return dispatch(sessionActions.newNote({
@@ -28,7 +27,7 @@ function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
     return dispatch(sessionActions.editNote({
       title: title,
       content: text,
-      id: noteId,
+      id: selectedNoteId,
     }));
   }
 
@@ -52,7 +51,7 @@ function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
           <Link to={`/newNote/`}>
             <button id="post-button" onClick={() => submitAndClose()}>post</button>
           </Link>
-          <button onClick={() => console.log('selectedNoteId:',selectedNoteId,'noteId',noteId)}>dark mode</button>
+          <button onClick={() => console.log('selectedNoteId:',selectedNoteId)}>dark mode</button>
           <button>vi mode</button>
           <button>help</button>
           <button>KaTeX help</button>
