@@ -6,3 +6,24 @@ General flow of EverWiki is as follows:
 * Users register an account and may then create _notebooks_.
 * A user populates notebooks with notes via a robust text editor.
 * The notebook file tree stylistically similar to Wikipedia pages and provide for convenient browsing.
+
+The following routes exist in the API
+
+# NOTES
+* POST /api/note/
+* GET /api/note/:noteId
+* POST /api/note/:noteId/edit
+* GET /api/note/:noteId/delete
+# NOTEBOOKS
+* POST /api/users/:userId/library (create new Notebook)
+* GET /api/users/:userId/library (populate a user's library on session start)
+* GET /api/notebook/:notebookId (delete notebook)
+# SESSION
+* POST /api/session (login)
+* GET /api/session (restore session)
+* DELETE /api/session (logout)
+# USERS
+* POST /api/users (sign up)
+
+A database schematic can be found on the Wiki.
+https://github.com/9ziggy9/EverWiki/wiki/Database-Schema
