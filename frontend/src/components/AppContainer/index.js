@@ -28,6 +28,10 @@ function AppContainer({ isLoaded }) {
     setSelectedNotebookId
   };
 
+  function deleteNote() {
+    dispatch(sessionActions.removeNote({id:selectedNoteId}));
+  }
+
   let applicationModules;
 
   if (sessionUser) {
@@ -47,7 +51,7 @@ function AppContainer({ isLoaded }) {
                                selectedNoteId={selectedNoteId}/>
           <CreateNoteFormModal btnName={'create note'}
                                selectedNotebookId={selectedNotebookId}/>
-          <button>delete note</button>
+          <button onClick={deleteNote}>delete note</button>
           <p>notebooks</p>
           <button>edit notebook</button>
           <NotebookModal />

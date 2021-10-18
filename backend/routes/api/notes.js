@@ -25,8 +25,17 @@ router.get(
   asyncHandler(async (req,res) => {
     const noteId = parseInt(req.params.id, 10);
     const note = await Note.findByPk(noteId);
-    console.log("HELLO FROM NOTE ROUTE:", noteId);
-    console.log("USER ID IS:", req.user.id);
+    return res.json(note);
+  }),
+);
+
+router.get(
+  '/:id(\\d+)/delete',
+  requireAuth,
+  asyncHandler(async (req,res) => {
+    const noteId = parseInt(req.params.id, 10);
+    const note = await Note.findByPk(noteId);
+    note.destroy();
     return res.json(note);
   }),
 );

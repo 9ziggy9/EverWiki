@@ -4,6 +4,7 @@ const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 const SET_NOTE = 'session/setNote';
 const ADD_NOTE = 'session/addNote';
+const DEL_NOTE = 'session/delNote';
 const EDIT_NOTE = 'session/editNote';
 const POPULATE_LIBRARY = 'session/setLibrary';
 const COMPILE_NOTES = 'session/setNotes';
@@ -31,6 +32,13 @@ const setNote = (note) => {
 const addNote = (note) => {
   return {
     type: ADD_NOTE,
+    payload: note
+  }
+}
+
+const delNote = (note) => {
+  return {
+    type: DEL_NOTE,
     payload: note
   }
 }
@@ -138,6 +146,14 @@ export const editNote = (note) => async (dispatch) => {
   return response;
 };
 
+export const removeNote = (note) => async (dispatch) => {
+  const {id} = note;
+  const response = await csrfFetch(`/api/note/${id}/delete`);
+  const data = await response.json();
+  dispatch(delNote(data));
+  return response;
+}
+
 export const compileNotes = (user) => async dispatch => {
   const {id} = user;
   const response = await csrfFetch(`/api/users/${id}/notes`);
@@ -185,6 +201,11 @@ const sessionReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       const filteredState = newState.notes.filter(note => note.id !== action.payload.id);
       newState.notes = [...filteredState, action.payload]
+      return newState;
+    case DEL_NOTE:
+      newState = Object.assign({}, state);
+      const cleansedState = newState.notes.filter(note => note.id !== action.payload.id);
+      newState.notes = [...cleansedState];
       return newState;
     case SET_NOTE:
       newState = Object.assign({}, state);
