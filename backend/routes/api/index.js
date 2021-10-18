@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const notesRouter = require('./notes.js')
+const notebookRouter = require('./notebooks.js')
 
 // testing routes
 // const asyncHandler = require('express-async-handler');
@@ -44,6 +45,8 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 router.use('/note', notesRouter);
+
+router.use('/notebook', notebookRouter);
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });

@@ -4,8 +4,11 @@ const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 const SET_NOTE = 'session/setNote';
 const ADD_NOTE = 'session/addNote';
+const DEL_NOTE = 'session/delNote';
 const EDIT_NOTE = 'session/editNote';
 const POPULATE_LIBRARY = 'session/setLibrary';
+const ADD_NOTEBOOK = 'session/addNotebook';
+const REMOVE_NOTEBOOK = 'session/removeNotebook';
 const COMPILE_NOTES = 'session/setNotes';
 
 const setUser = (user) => {
@@ -35,6 +38,13 @@ const addNote = (note) => {
   }
 }
 
+const delNote = (note) => {
+  return {
+    type: DEL_NOTE,
+    payload: note
+  }
+}
+
 const changeNote = (note) => {
   return {
     type: EDIT_NOTE,
@@ -46,6 +56,20 @@ const setLibrary = (library) => {
   return {
     type: POPULATE_LIBRARY,
     payload: library
+  };
+}
+
+const addNotebook = (notebook) => {
+  return {
+    type: ADD_NOTEBOOK,
+    payload: notebook,
+  };
+}
+
+const removeNotebook = (notebook) => {
+  return {
+    type: REMOVE_NOTEBOOK,
+    payload: notebook,
   };
 }
 
@@ -138,6 +162,14 @@ export const editNote = (note) => async (dispatch) => {
   return response;
 };
 
+export const removeNote = (note) => async (dispatch) => {
+  const {id} = note;
+  const response = await csrfFetch(`/api/note/${id}/delete`);
+  const data = await response.json();
+  dispatch(delNote(data));
+  return response;
+}
+
 export const compileNotes = (user) => async dispatch => {
   const {id} = user;
   const response = await csrfFetch(`/api/users/${id}/notes`);
@@ -155,11 +187,34 @@ export const populateLibrary = (user) => async (dispatch) => {
   return response;
 }
 
+export const addToLibrary = (notebook) => async (dispatch) => {
+  const {userId, title} = notebook;
+  const response = await csrfFetch(`/api/users/${userId}/library`, {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      userId
+    }),
+  });
+  const data = await response.json();
+  dispatch(addNotebook(data));
+  return response;
+};
+
+export const removeFromLibrary = (notebook) => async(dispatch) => {
+  const {id} = notebook;
+  console.log('hello from removeFromLibrary()');
+  const response = await csrfFetch(`/api/notebook/${id}/delete`);
+  const data = await response.json();
+  dispatch(removeNotebook(data));
+  return response;
+};
+
 const initialState = {
   user: null,
   note: {
     id: 0,
-    title: 'Welcome',
+    title: 'Untitled',
     content: `*Welcome To EverWiki`
   },
   notes: [],
@@ -181,10 +236,24 @@ const sessionReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.notes = [...newState.notes, action.payload]
       return newState;
+    case ADD_NOTEBOOK:
+      newState = Object.assign({}, state);
+      newState.library = [...newState.library, action.payload]
+      return newState;
+    case REMOVE_NOTEBOOK:
+      newState = Object.assign({}, state);
+      const cleansedLibrary = newState.library.filter(nb => nb.id !== action.payload.id)
+      newState.library = [...cleansedLibrary]
+      return newState;
     case EDIT_NOTE:
       newState = Object.assign({}, state);
       const filteredState = newState.notes.filter(note => note.id !== action.payload.id);
       newState.notes = [...filteredState, action.payload]
+      return newState;
+    case DEL_NOTE:
+      newState = Object.assign({}, state);
+      const cleansedState = newState.notes.filter(note => note.id !== action.payload.id);
+      newState.notes = [...cleansedState];
       return newState;
     case SET_NOTE:
       newState = Object.assign({}, state);

@@ -31,11 +31,15 @@ function NotebookTab({setSelectedNotebookId, selectedNotebookId,
   }
 
   function expand() {
-    setSelectedNotebookId(notebookId);
-    if(isExpanded) {
+    if(isExpanded && selectedNotebookId !== notebookId) {
+      setSelectedNotebookId(notebookId);
+    } else if (isExpanded && selectedNotebookId === notebookId){
       setIsExpanded(false);
+      setSelectedNotebookId(null);
     } else {
       setIsExpanded(true);
+      setSelectedNotebookId(notebookId);
+      setSelectedNoteId(null);
     }
   }
 

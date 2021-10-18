@@ -7,7 +7,10 @@ function NoteTab({ selectedNoteId,
   const [btnState, setBtnState] = useState('unselected');
 
   function selectTab() {
-    setSelectedNoteId(noteId)
+    if(selectedNoteId !== noteId)
+      setSelectedNoteId(noteId);
+    else
+      setSelectedNoteId(null);
   }
 
   useEffect(() => {
@@ -16,7 +19,6 @@ function NoteTab({ selectedNoteId,
     } else {
       setBtnState('unselected')
     }
-    console.log("selectedNoteId:",selectedNoteId);
   }, [selectedNoteId])
 
   return (

@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { Note } = require('../../db/models');
+const { Notebook } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
@@ -25,8 +26,17 @@ router.get(
   asyncHandler(async (req,res) => {
     const noteId = parseInt(req.params.id, 10);
     const note = await Note.findByPk(noteId);
-    console.log("HELLO FROM NOTE ROUTE:", noteId);
-    console.log("USER ID IS:", req.user.id);
+    return res.json(note);
+  }),
+);
+
+router.get(
+  '/:id(\\d+)/delete',
+  requireAuth,
+  asyncHandler(async (req,res) => {
+    const noteId = parseInt(req.params.id, 10);
+    const note = await Note.findByPk(noteId);
+    note.destroy();
     return res.json(note);
   }),
 );
@@ -63,6 +73,5 @@ router.post(
     return res.json(note);
   })
 );
-/* EDIT ROUTE GOES HERE */
 
 module.exports = router;

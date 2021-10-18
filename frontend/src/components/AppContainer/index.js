@@ -15,6 +15,7 @@ function AppContainer({ isLoaded }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const sessionLibrary = useSelector(state => state.session.library);
+  const sessionNotes = useSelector(state => state.session.notes);
 
   const [selectedNoteId, setSelectedNoteId] = useState(0);
   const [selectedNotebookId, setSelectedNotebookId] = useState(0);
@@ -27,6 +28,18 @@ function AppContainer({ isLoaded }) {
     selectedNotebookId,
     setSelectedNotebookId
   };
+
+  function deleteNote() {
+    dispatch(sessionActions.removeNote({id:selectedNoteId}));
+  }
+
+  function deleteNotebook() {
+    dispatch(sessionActions.removeFromLibrary({id:selectedNotebookId}));
+  }
+
+  function demoUser() {
+    dispatch(sessionActions.login({credential:"Demo-lition", password:"password"}));
+  }
 
   let applicationModules;
 
@@ -47,11 +60,10 @@ function AppContainer({ isLoaded }) {
                                selectedNoteId={selectedNoteId}/>
           <CreateNoteFormModal btnName={'create note'}
                                selectedNotebookId={selectedNotebookId}/>
-          <button>delete note</button>
+          <button onClick={deleteNote}>delete note</button>
           <p>notebooks</p>
-          <button>edit notebook</button>
           <NotebookModal />
-          <button>delete notebook</button>
+          <button onClick={deleteNotebook}>delete notebook</button>
         </div>
       </>
     );
@@ -81,6 +93,12 @@ function AppContainer({ isLoaded }) {
     }
   }, [sessionLibrary])
 
+  useEffect(() => {
+    if(sessionNotes.length) {
+      setSelectedNoteId(sessionNotes[0].id);
+    }
+  }, [sessionNotes])
+
   return (
     <>
       <div className='app-container'>
@@ -93,9 +111,10 @@ function AppContainer({ isLoaded }) {
           </Switch>
         )}
         <footer>
-          <p>tutorial</p>
-          <p>about</p>
-          <img id='gh' alt='' src='../GitHub_Logo.png'/>
+          <p onClick={demoUser}>demo</p>
+          <a href="https://github.com/9ziggy9/EverWiki">
+            <img id='gh' alt='' src='../GitHub_Logo.png'/>
+          </a>
         </footer>
       </div>
     </>
