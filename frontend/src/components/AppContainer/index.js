@@ -36,6 +36,10 @@ function AppContainer({ isLoaded }) {
     dispatch(sessionActions.removeFromLibrary({id:selectedNotebookId}));
   }
 
+  function demoUser() {
+    dispatch(sessionActions.login({credential:"Demo-lition", password:"password"}));
+  }
+
   let applicationModules;
 
   if (sessionUser) {
@@ -100,9 +104,10 @@ function AppContainer({ isLoaded }) {
           </Switch>
         )}
         <footer>
-          <p>tutorial</p>
-          <p>about</p>
-          <img id='gh' alt='' src='../GitHub_Logo.png'/>
+          <p onClick={demoUser}>demo</p>
+          <a href="https://github.com/9ziggy9/EverWiki">
+            <img id='gh' alt='' src='../GitHub_Logo.png'/>
+          </a>
         </footer>
       </div>
     </>

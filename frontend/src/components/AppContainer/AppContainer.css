@@ -153,8 +153,12 @@ footer p {
     font-size:17px;
     font-weight:bold;
     padding-right:9px;
+    cursor:pointer;
 }
 
+footer a {
+    height:100%;
+}
 #gh {
     height:100%;
 }
