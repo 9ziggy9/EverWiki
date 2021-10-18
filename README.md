@@ -1,5 +1,6 @@
 # EverWiki
 
+https://everwiki.herokuapp.com/
 EverWiki is an EverNote clone looking to present notes in a personal Wiki format. Notes are created by users and associated to a given notebook which are then compiled into a library. EverWiki provides a text editor aimed at developers and LaTeX users to easily create technical notes.
 
 General flow of EverWiki is as follows:
