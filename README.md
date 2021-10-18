@@ -7,9 +7,9 @@ General flow of EverWiki is as follows:
 * Users register an account and may then create _notebooks_.
 * A user populates notebooks with notes via a robust text editor.
 * The notebook file tree stylistically similar to Wikipedia pages and provide for convenient browsing.
+* DOMPurify is used to sanitize rendered HTML in their only two component locations. Do I feel lucky?
 
 The following routes exist in the API
-
 # NOTES
 * POST /api/note/
 * GET /api/note/:noteId
