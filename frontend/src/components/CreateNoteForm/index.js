@@ -51,8 +51,6 @@ function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
           <Link to={`/newNote/`}>
             <button id="post-button" onClick={() => submitAndClose()}>post</button>
           </Link>
-          <button>help</button>
-          <button>KaTeX help</button>
         </div>
     </>
   );
