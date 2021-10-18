@@ -15,6 +15,7 @@ function AppContainer({ isLoaded }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const sessionLibrary = useSelector(state => state.session.library);
+  const sessionNotes = useSelector(state => state.session.notes);
 
   const [selectedNoteId, setSelectedNoteId] = useState(0);
   const [selectedNotebookId, setSelectedNotebookId] = useState(0);
@@ -91,6 +92,12 @@ function AppContainer({ isLoaded }) {
       setSelectedNotebookId(sessionLibrary[0].id);
     }
   }, [sessionLibrary])
+
+  useEffect(() => {
+    if(sessionNotes.length) {
+      setSelectedNoteId(sessionNotes[0].id);
+    }
+  }, [sessionNotes])
 
   return (
     <>

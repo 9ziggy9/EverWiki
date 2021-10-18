@@ -51,11 +51,8 @@ function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
           <Link to={`/newNote/`}>
             <button id="post-button" onClick={() => submitAndClose()}>post</button>
           </Link>
-          <button onClick={() => console.log('selectedNoteId:',selectedNoteId)}>dark mode</button>
-          <button>vi mode</button>
           <button>help</button>
           <button>KaTeX help</button>
-          <button>cancel</button>
         </div>
     </>
   );
