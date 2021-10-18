@@ -4,6 +4,7 @@ import TextEditor from '../TextEditor';
 import {Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
+import DOMPurify from 'dompurify'; //You didn't think I'd forget to sanitize that HTML, did you?
 import * as sessionActions from '../../store/session'
 
 function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
@@ -16,17 +17,20 @@ function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
   const [textStream, setTextStream] = useState('');
 
   function postNote() {
+    const cleanPost = DOMPurify.sanitize(text);
+    console.log(cleanPost);
     return dispatch(sessionActions.newNote({
       title: title,
-      content: text,
+      content: cleanPost,
       notebookId: selectedNotebookId,
     }));
   }
 
   function editNote() {
+    const cleanEdit = DOMPurify.sanitize(text);
     return dispatch(sessionActions.editNote({
       title: title,
-      content: text,
+      content: cleanEdit,
       id: selectedNoteId,
     }));
   }

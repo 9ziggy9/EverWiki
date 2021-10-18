@@ -1,12 +1,12 @@
 {
   "dependencies": {
+    "dompurify": "^2.3.3",
     "katex": "^0.13.18"
   },
   "name": "everwiki",
   "description": "EverWiki is an EverNote clone looking to present notes in a personal Wiki format. Notes are created by users and associated to notebooks via topics. EverWiki then presents notes by their associations in a clean, encyclopedic format. EverWiki is geared towards users looking to categorizing personal notes on technical topics, especially code.",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
