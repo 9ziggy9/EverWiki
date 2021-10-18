@@ -112,6 +112,9 @@ function AppContainer({ isLoaded }) {
         )}
         <footer>
           <p onClick={demoUser}>demo</p>
+          <a href="https://github.com/9ziggy9/EverWiki/README.md">
+            <p>about</p>
+          </a>
           <a href="https://github.com/9ziggy9/EverWiki">
             <img id='gh' alt='' src='../GitHub_Logo.png'/>
           </a>
