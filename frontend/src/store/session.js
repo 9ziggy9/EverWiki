@@ -91,6 +91,7 @@ export const login = (user) => async (dispatch) => {
   });
   const data = await response.json();
   dispatch(setUser(data.user));
+  window.location.reload(false);
   return response;
 };
 
