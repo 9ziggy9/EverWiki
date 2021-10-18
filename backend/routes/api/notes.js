@@ -38,10 +38,11 @@ router.post(
   validateNote,
   asyncHandler(async (req,res) => {
     const userId = req.user.id;
-    const {title,content} = req.body;
+    const {title,content,notebookId} = req.body;
     const note = await Note.create({
         userId,
         title,
+        notebookId,
         content
       });
     return res.json(note);
