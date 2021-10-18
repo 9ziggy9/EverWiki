@@ -26,3 +26,4 @@ The following routes exist in the API
 * POST /api/users (sign up)
 
 A database schematic can be found on the Wiki.
+https://github.com/9ziggy9/EverWiki/wiki/Database-Schema
