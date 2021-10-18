@@ -33,10 +33,10 @@
     "nodemon": "^2.0.13"
   },
     "scripts": {
-    "sequelize": "sequelize",
-    "sequelize-cli": "sequelize-cli",
-    "start": "per-env",
-    "start:development": "nodemon -r dotenv/config ./bin/www",
-    "start:production": "node ./bin/www"
+      "sequelize": "sequelize",
+      "sequelize-cli": "sequelize-cli",
+      "start": "per-env",
+      "start:development": "nodemon -r dotenv/config ./bin/www",
+      "start:production": "node ./bin/www"
   }
 }
