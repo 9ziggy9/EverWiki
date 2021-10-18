@@ -18,10 +18,32 @@ function CreateNoteFormModal({btnName, selectedNotebookId, selectedNoteId}) {
     setTitle
   }
 
+  const tutorial_text =
+`
+*A Brief Tutorial
+Headers are defined with asterix.
+*Header 1
+**Header 2
+***Header 3
+****Header 4
+*****Header 5
+
+Font can be [i italic] or [b bold].
+
+**LaTeX blocks can be inserted with [m]
+[m \Gamma(s) = \int_{\mathbb{R_+} t^{s-1}e^{-t}\,ds}]
+
+**Raw HTML is also possible.
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Gamma_plot.svg">
+`
+
   function handleModal() {
     if(btnName === 'edit note') {
       setText(note.content);
       setTitle(note.title);
+    } else {
+      setText(tutorial_text);
+      setTitle('Enter Title');
     }
     setShowModal(true);
   }

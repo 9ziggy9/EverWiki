@@ -216,7 +216,7 @@ const initialState = {
   note: {
     id: 0,
     title: 'Untitled',
-    content: `*Welcome To EverWiki`
+    content: ''
   },
   notes: [],
   library: [],

@@ -7,6 +7,7 @@ import {useDispatch} from 'react-redux';
 import * as sessionActions from '../../store/session'
 
 function CreateNoteForm({TEXT_EDITOR_SESSION, btnName,
+                  text_tutorial,
                   selectedNoteId,
                   selectedNotebookId}) {
   const {text, setText,
