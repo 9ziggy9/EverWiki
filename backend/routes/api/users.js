@@ -55,6 +55,19 @@ router.get(
   }),
 );
 
+router.post(
+  '/:id(\\d+)/library',
+  asyncHandler(async (req,res) => {
+    const userId = parseInt(req.params.id, 10);
+    const {title} = req.body;
+    const notebook = await Notebook.create({
+      userId,
+      title
+    });
+    return res.json(notebook);
+  }),
+);
+
 // Compile notes given a user
 router.get(
   '/:id(\\d+)/notes',

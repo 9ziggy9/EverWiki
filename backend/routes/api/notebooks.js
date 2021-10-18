@@ -1,9 +1,7 @@
-
-const express = require('express')
+const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { Notebook } = require('../../db/models');
-const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -20,6 +18,16 @@ router.get(
   asyncHandler(async (req,res) => {
     const notebookId = parseInt(req.params.id, 10);
     res.render(notebookId);
+  }),
+);
+
+router.get(
+  '/:id(\\d+)/delete',
+  asyncHandler(async (req,res) => {
+    const notebookId = parseInt(req.params.id, 10);
+    const notebook = await Notebook.findByPk(notebookId);
+    notebook.destroy();
+    return res.json(notebook);
   }),
 );
 

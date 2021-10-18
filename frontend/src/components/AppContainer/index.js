@@ -32,6 +32,10 @@ function AppContainer({ isLoaded }) {
     dispatch(sessionActions.removeNote({id:selectedNoteId}));
   }
 
+  function deleteNotebook() {
+    dispatch(sessionActions.removeFromLibrary({id:selectedNotebookId}));
+  }
+
   let applicationModules;
 
   if (sessionUser) {
@@ -53,9 +57,8 @@ function AppContainer({ isLoaded }) {
                                selectedNotebookId={selectedNotebookId}/>
           <button onClick={deleteNote}>delete note</button>
           <p>notebooks</p>
-          <button>edit notebook</button>
           <NotebookModal />
-          <button>delete notebook</button>
+          <button onClick={deleteNotebook}>delete notebook</button>
         </div>
       </>
     );

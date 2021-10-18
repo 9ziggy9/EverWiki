@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
+import * as sessionActions from '../../store/session';
+import {useDispatch, useSelector} from 'react-redux';
 
 function NotebookModal() {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  const userId = sessionUser.id;
   const [showModal, setShowModal] = useState(false);
+  const [title, setTitle] = useState('Untitled');
+  const updateTitle = (e) => setTitle(e.target.value);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.addToLibrary({
+      title,
+      userId
+    }));
+    setShowModal(false);
+  }
+
   return (
     <>
       <button onClick={() => setShowModal(true)}>create notebook</button>
@@ -26,12 +43,13 @@ function NotebookModal() {
               Feel free to contact me on GitHub if you discover any bugs.
               Good luck!
             </p>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Notebook Name
-                    <input type="text" name="name" />
-                    <input type="submit" name="submit" />
+                    <input type="text" name="name"
+                            value={title} onChange={updateTitle}/>
                 </label>
+                    <input type="submit" name="submit" />
             </form>
           </div>
         </Modal>

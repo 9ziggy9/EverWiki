@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const { Note } = require('../../db/models');
+const { Notebook } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
@@ -72,6 +73,5 @@ router.post(
     return res.json(note);
   })
 );
-/* EDIT ROUTE GOES HERE */
 
 module.exports = router;
