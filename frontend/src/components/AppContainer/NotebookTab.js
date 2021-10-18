@@ -3,14 +3,12 @@ import {useSelector} from 'react-redux';
 import NoteTab from './NoteTab';
 
 
-function NotebookTab({setSelectedNotebookId,
-               selectedNotebookId,
-               selectedNoteId,
-               setSelectedNoteId,
+function NotebookTab({setSelectedNotebookId, selectedNotebookId,
+               selectedNoteId, setSelectedNoteId, notes,
                notebookName, notebookId}) {
+
   const [isExpanded, setIsExpanded] = useState(true);
   const [btnState, setBtnState] = useState('unselected');
-  const notes = useSelector(state => state.session.notes);
   let noteTree;
 
   if(isExpanded) {

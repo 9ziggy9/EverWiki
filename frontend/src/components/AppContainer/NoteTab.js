@@ -16,6 +16,7 @@ function NoteTab({ selectedNoteId,
     } else {
       setBtnState('unselected')
     }
+    console.log("selectedNoteId:",selectedNoteId);
   }, [selectedNoteId])
 
   return (
