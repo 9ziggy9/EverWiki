@@ -31,7 +31,7 @@ Headers are defined with asterix.
 Font can be [i italic] or [b bold].
 
 **LaTeX blocks can be inserted with [m]
-[m \Gamma(s) = \int_{\mathbb{R_+} t^{s-1}e^{-t}\,ds}]
+[m \Gamma(s) = \int_{\mathbb{R_+}} t^{s-1}e^{-t}\,ds]
 
 **Raw HTML is also possible.
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Gamma_plot.svg">
