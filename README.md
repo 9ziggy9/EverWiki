@@ -11,6 +11,8 @@ General flow of EverWiki is as follows:
 * The notebook file tree stylistically similar to Wikipedia pages and provide for convenient browsing.
 * DOMPurify is used to sanitize rendered HTML in their only two component locations. Do I feel lucky?
 
+TODO: Fix undefined bug on note load.
+
 The following routes exist in the API
 # NOTES
 * POST /api/note/
